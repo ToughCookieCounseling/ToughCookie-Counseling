@@ -4,59 +4,174 @@
   <title>Tough Cookie Counseling</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background-color: #f8f8f6;
       color: #333;
+    }
+
+    /* NAV BAR */
+    nav {
+      background-color: #6F7F6A;
+      padding: 15px;
       text-align: center;
     }
-    header {
-      background-color: #6F7F6A;
-      color: white;
-      padding: 40px 20px;
+
+    nav a {
+      color: #f4e6c1;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #6F7F6A;
+      color: #f4e6c1;
+    }
+
     section {
-      padding: 40px 20px;
-      max-width: 700px;
+      padding: 50px 20px;
+      max-width: 900px;
       margin: auto;
     }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     .button {
       display: inline-block;
-      padding: 12px 20px;
+      padding: 14px 22px;
       background-color: #6F7F6A;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       margin-top: 20px;
+      font-weight: bold;
     }
+
+    .center {
+      text-align: center;
+    }
+
+    footer {
+      background-color: #6F7F6A;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
   </style>
 </head>
+
 <body>
 
-<header>
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#faq">FAQ</a>
+  <a href="#resources">Resources</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+<header id="home">
   <h1>Tough Cookie Counseling</h1>
   <p>Because tough doesn’t mean untouchable.</p>
 </header>
 
-<section>
+<section class="center">
   <h2>Support for Those Who Carry More</h2>
   <p>
     Specialized counseling for first responders, professionals, and families navigating stress, trauma, and life transitions.
   </p>
 
-  <a class="button" href="mailto:your@email.com">Request an Appointment</a>
+  <a class="button" href="mailto:toughcookiecounseling@gmail.com">
+    Request an Appointment
+  </a>
 </section>
 
-<section>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <p>
+    I’m Samantha Reynolds-Battrell, LPCC-S, LICDC — a clinical leader and therapist with a passion for supporting individuals navigating high-stress roles, trauma, and complex life transitions.
+  </p>
+
+  <p>
+    My approach is grounded in practical, evidence-based care combined with a deep respect for the lived experience of each person I work with. I specialize in working with first responders, professionals, and families who carry more than most people see.
+  </p>
+
+  <p>
+    Therapy with me is direct, supportive, and focused on helping you regain control, clarity, and stability.
+  </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
   <h2>Services</h2>
-  <p>Individual Counseling • First Responder Support • Clinical Supervision • Consulting</p>
+  <p class="center">
+    Individual Counseling • First Responder Support • Clinical Supervision • Consulting
+  </p>
+
+  <p>
+    Services are tailored to meet the needs of high-functioning individuals facing burnout, trauma exposure, and major life stressors.
+  </p>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: your@email.com</p>
+<!-- FAQ -->
+<section id="faq">
+  <h2>FAQ</h2>
+
+  <p><strong>What can I expect in the first session?</strong><br>
+  We’ll focus on understanding your needs, goals, and what brought you in — no pressure, just clarity.</p>
+
+  <p><strong>Is therapy confidential?</strong><br>
+  Yes, with standard legal and safety exceptions explained clearly at the start.</p>
+
+  <p><strong>Do you work with first responders?</strong><br>
+  Yes — this is a primary focus area of my work.</p>
 </section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <h2>Resources</h2>
+  <p class="center">
+    Coming soon: tools, guides, and resources for individuals and families navigating high-stress environments.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <p class="center">
+    📞 513-327-8319<br>
+    📧 toughcookiecounseling@gmail.com
+  </p>
+
+  <div class="center">
+    <a class="button" href="mailto:toughcookiecounseling@gmail.com">
+      Start Here
+    </a>
+  </div>
+</section>
+
+<footer>
+  © Tough Cookie Counseling
+</footer>
 
 </body>
 </html>
