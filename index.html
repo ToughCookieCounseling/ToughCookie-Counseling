@@ -202,8 +202,26 @@ footer a {
 .section {
   padding: 100px 20px;
   text-align: center;
+  position: relative;
 }
 
+.section::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 1px;
+  margin: 80px auto 0 auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(245, 241, 234, 0.3),
+    transparent
+  );
+}
+
+.section:last-of-type::after {
+  display: none;
+}
 .section-content {
   max-width: 800px;
   margin: 0 auto;
