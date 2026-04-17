@@ -8,37 +8,55 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7f9f8;
-  color: #2f2f2f;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 70% 65%, rgba(9, 53, 43, 0.75) 0%, rgba(9, 53, 43, 0) 28%),
+    radial-gradient(circle at 30% 25%, rgba(0, 80, 60, 0.35) 0%, rgba(0, 80, 60, 0) 22%),
+    linear-gradient(115deg, #021f1a 0%, #06352d 32%, #0b5a4b 58%, #03241e 100%);
+  color: white;
 }
   
  .hero {
-  background: linear-gradient(
-    rgba(64, 130, 109, 0.95),
-    rgba(64, 130, 109, 0.85)
-  );
-  color: white;
-  padding: 140px 40px 120px 40px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.38)),
+    radial-gradient(circle at 65% 70%, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0) 30%),
+    radial-gradient(circle at 35% 30%, rgba(0, 120, 90, 0.18) 0%, rgba(0, 120, 90, 0) 24%);
 }
-
+  
 .hero-content {
-  max-width: 850px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .hero h1 {
-  font-size: 52px;
-  margin: 0 0 30px 0;
-  color: white;
+  margin: 0 0 22px 0;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #f5f1ea;
 }
 
 .hero p {
-  font-size: 22px;
+  margin: 14px 0;
+  font-size: 1.5rem;
   line-height: 1.7;
-  margin: 0 0 22px 0;
-  color: white;
+  color: #f5f1ea;
 }
+
+.hero .subline {
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+}  
+  
+  
  .content {
   max-width: 900px;
   margin: 40px auto;
@@ -225,42 +243,16 @@ footer a {
 <!-- WELCOME -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Welcome!</h1>
-
-    <p>
-      At Tough Cookie Counseling, we specialize in supporting those who carry more than most. Our work centers on first responders, the individuals who stand beside them, and the families shaped by both the demands and the meaning of that role.
-    </p>
-
-    <p>
-      We provide therapy for first responders navigating the weight of service, couples both within and outside of first responder life, and families seeking stability, connection, and understanding.
-    </p>
-
-    <p>
-      This is a space where resilience is respected, complexity is understood, and real support begins.
-    </p>
+    <h1>Tough Cookie Counseling</h1>
+    <p class="subline">Therapy | First Responders | Families</p>
+    <p>Supporting those who carry more than most.</p>
+    <p>Serving clients in Ohio and Kentucky.</p>
   </div>
 </section>
 
-<hr style="width: 60%; border: 0; height: 1px; background: #d6e4dd; margin: 40px auto;">
-
-<!-- WHY US -->
-<section class="content">
-  <h1>Why Us?</h1>
-
-  <p>
-    Many of our therapists bring lived experience as first responders and as partners, parents, children and loved ones who share in that life.
-  </p>
-
-  <p><strong>This is a unique fluency.</strong></p>
-
-  <p>
-    Our team is deeply committed to serving the first responder community and those connected to it.
-  </p>
-
-  <p>
-    Because of that, our approach is both clinically sound and context aware. We meet you where you are.
-  </p>
-</section>
+<div style="display: none;">
+  ...everything below the hero...
+</div>
 
 <!-- FOOTER -->
 <footer>
