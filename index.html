@@ -24,7 +24,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #2a7f62;
+  background: #2a7f62;
   padding: 12px 24px;
   position: relative;
   z-index: 1000;
@@ -36,21 +36,21 @@ body {
 
 .nav-menu {
   display: flex;
-  gap: 25px;
+  gap: 24px;
   align-items: center;
 }
 
 .dropdown {
   position: relative;
+  display: inline-block;
 }
 
 .dropbtn {
-  background: none;
-  border: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
   padding: 8px 0;
+  font-weight: 500;
 }
 
 .dropdown-content {
@@ -58,22 +58,23 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #1f5f4a;
-  min-width: 220px;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
+  min-width: 230px;
+  background: #1f5f4a;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  border-radius: 6px;
   z-index: 2000;
 }
 
 .dropdown-content a {
   display: block;
   padding: 12px 14px;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   white-space: nowrap;
 }
 
 .dropdown-content a:hover {
-  background-color: #3fa07a;
+  background: #3fa07a;
 }
 
 .dropdown:hover .dropdown-content {
@@ -138,7 +139,7 @@ footer a {
 
   <nav class="nav-menu">
     <div class="dropdown">
-      <button class="dropbtn">About</button>
+      <div class="dropbtn">About</div>
       <div class="dropdown-content">
         <a href="about-tcc.html">About Tough Cookie Counseling</a>
         <a href="samantha-battrell.html">Samantha Battrell</a>
@@ -146,7 +147,7 @@ footer a {
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">Services</button>
+      <div class="dropbtn">Services</div>
       <div class="dropdown-content">
         <a href="services.html">Clinical Services</a>
         <a href="services.html#peer-support">Peer Support</a>
@@ -155,7 +156,7 @@ footer a {
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">Professional</button>
+      <div class="dropbtn">Professional</div>
       <div class="dropdown-content">
         <a href="professional.html#supervision">Clinical Supervision</a>
         <a href="professional.html#internships">Internship Opportunities</a>
@@ -165,7 +166,7 @@ footer a {
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">Specialties</button>
+      <div class="dropbtn">Specialties</div>
       <div class="dropdown-content">
         <a href="specialties.html#first-responder">First Responder</a>
         <a href="specialties.html#trauma">Trauma</a>
@@ -176,7 +177,7 @@ footer a {
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">FAQs</button>
+      <div class="dropbtn">FAQs</div>
       <div class="dropdown-content">
         <a href="faq.html#what-is-therapy">What is Therapy?</a>
         <a href="faq.html#who-should-go">Who Should Go?</a>
@@ -187,7 +188,7 @@ footer a {
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn">Contact</button>
+      <div class="dropbtn">Contact</div>
       <div class="dropdown-content">
         <a href="contact.html">Contact Information</a>
         <a href="contact.html#schedule">How to Schedule</a>
