@@ -3,115 +3,577 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional - Tough Cookie Counseling</title>
+  <title>Professional | Tough Cookie Counseling</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #2f2f2f;
-      background-color: #ffffff;
-    }
-
-    header {
-      background-color: #6F7F6A;
-      padding: 15px 25px;
-    }
-
-    header a {
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 70% 65%, rgba(9, 53, 43, 0.75) 0%, rgba(9, 53, 43, 0) 28%),
+        radial-gradient(circle at 30% 25%, rgba(0, 80, 60, 0.35) 0%, rgba(0, 80, 60, 0) 22%),
+        linear-gradient(115deg, #021f1a 0%, #06352d 32%, #0b5a4b 58%, #03241e 100%);
       color: white;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(3, 36, 30, 0.95);
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(245, 241, 234, 0.12);
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
-      font-weight: bold;
     }
 
-    main {
-      max-width: 950px;
+    .logo-text {
+      color: #f5f1ea;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar a,
+    .dropbtn {
+      color: #f5f1ea;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+
+    .navbar a:hover,
+    .dropbtn:hover {
+      color: #d8cfc2;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(3, 36, 30, 0.98);
+      min-width: 240px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+      z-index: 1001;
+      border: 1px solid rgba(245, 241, 234, 0.1);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      color: #f5f1ea;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(245, 241, 234, 0.08);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .hero-mini {
+      text-align: center;
+      padding: 90px 20px 50px;
+    }
+
+    .hero-mini h1 {
+      margin: 0 0 18px 0;
+      font-size: 3.3rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f5f1ea;
+    }
+
+    .hero-mini p {
+      max-width: 920px;
       margin: 0 auto;
-      padding: 60px 30px;
+      font-size: 1.2rem;
+      line-height: 1.85;
+      color: #e8e2d9;
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 30px;
+    .anchor-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-top: 50px;
-      margin-bottom: 15px;
-      color: #6F7F6A;
+    .anchor-links a {
+      color: #f5f1ea;
+      text-decoration: none;
+      border: 1px solid rgba(245, 241, 234, 0.18);
+      background: rgba(3, 36, 30, 0.36);
+      padding: 10px 16px;
+      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
     }
 
-    p {
-      line-height: 1.7;
-      margin-bottom: 16px;
+    .anchor-links a:hover {
+      background: rgba(245, 241, 234, 0.08);
     }
 
-    .section-block {
-      margin-bottom: 42px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #e5e5e5;
+    .page-content {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 10px 20px 100px;
+    }
+
+    .section {
+      padding: 44px 0 72px;
+      position: relative;
+    }
+
+    .section::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 1px;
+      margin: 70px auto 0;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(245, 241, 234, 0.3),
+        transparent
+      );
+    }
+
+    .section:last-of-type::after {
+      display: none;
+    }
+
+    .section-content {
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 24px;
+      color: #f5f1ea;
+      text-align: center;
+    }
+
+    .section-intro {
+      max-width: 860px;
+      margin: 0 auto 34px;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #e8e2d9;
+      text-align: center;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .offer-card {
+      background: rgba(3, 36, 30, 0.42);
+      border: 1px solid rgba(245, 241, 234, 0.1);
+      padding: 28px 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+      min-height: 240px;
+    }
+
+    .offer-card h3 {
+      margin: 0 0 14px 0;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f5f1ea;
+    }
+
+    .offer-card p {
+      margin: 0 0 14px 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #e8e2d9;
+    }
+
+    .detail-band {
+      background: rgba(3, 36, 30, 0.38);
+      border: 1px solid rgba(245, 241, 234, 0.1);
+      padding: 34px 30px;
+      margin-top: 28px;
+    }
+
+    .detail-band h3 {
+      margin: 0 0 16px 0;
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f5f1ea;
+    }
+
+    .detail-band p {
+      margin: 0 0 16px 0;
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: #e8e2d9;
+    }
+
+    .detail-band p:last-child {
+      margin-bottom: 0;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .focus-box {
+      background: rgba(3, 36, 30, 0.42);
+      border: 1px solid rgba(245, 241, 234, 0.1);
+      padding: 26px 22px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+    }
+
+    .focus-box h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f5f1ea;
+    }
+
+    .focus-box p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #e8e2d9;
+    }
+
+    .closing-box {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 32px 28px;
+      text-align: center;
+      background: rgba(3, 36, 30, 0.45);
+      border: 1px solid rgba(245, 241, 234, 0.12);
+    }
+
+    .closing-box p {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #e8e2d9;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 30px 20px;
+      background: rgba(3, 36, 30, 0.9);
+      color: white;
+      border-top: 1px solid rgba(245, 241, 234, 0.12);
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1 1 220px;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin-top: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #f5f1ea;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    footer a {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .nav-menu {
+        gap: 16px;
+      }
+
+      .hero-mini h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-mini p,
+      .section-intro,
+      .detail-band p,
+      .closing-box p {
+        font-size: 1.05rem;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-band {
+        padding: 28px 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="index.html">← Home</a>
+  <header class="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="Cookie Logo Only.png" class="logo" alt="Tough Cookie Counseling Home">
+      <span class="logo-text">Tough Cookie Counseling</span>
+    </a>
+
+    <nav class="nav-menu">
+      <div class="dropdown">
+        <div class="dropbtn">About</div>
+        <div class="dropdown-content">
+          <a href="about-tcc.html">About Tough Cookie Counseling</a>
+          <a href="samantha-battrell.html">Samantha Battrell</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropbtn">Services</div>
+        <div class="dropdown-content">
+          <a href="services.html">Clinical Services</a>
+          <a href="services.html#peer-support">Peer Support</a>
+          <a href="services.html#consulting">Consulting</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <div class="dropbtn">Professional</div>
+        <div class="dropdown-content">
+          <a href="professional.html#supervision">Clinical Supervision</a>
+          <a href="professional.html#internships">Internships</a>
+          <a href="professional.html#work-with-us">Work With Us</a>
+          <a href="professional.html#ceu">CEU Development & Training</a>
+        </div>
+      </div>
+
+      <a href="specialties.html">Specialties</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main>
+  <section class="hero-mini">
     <h1>Professional</h1>
+    <p>
+      Tough Cookie Counseling offers professional support for clinicians, students, organizations, and emerging programs seeking guidance that is thoughtful, practical, and grounded in real-world experience.
+    </p>
 
-    <div class="section-block" id="supervision">
-      <h2>Clinical Supervision for LPCs</h2>
-      <p>
-        Structured, supportive supervision for LPCs working toward independent licensure in Ohio. Supervision is grounded in clinical skill development, ethical practice, and real-world application, with a focus on helping clinicians grow in both confidence and competence.
-      </p>
-      <p>
-        Supervision meets state requirements and includes regular individual and/or group sessions, documentation review, and guidance aligned with Ohio Counselor, Social Worker, and Marriage and Family Therapist Board standards.
-      </p>
+    <div class="anchor-links">
+      <a href="#supervision">Clinical Supervision</a>
+      <a href="#internships">Internships</a>
+      <a href="#work-with-us">Work With Us</a>
+      <a href="#ceu">CEU Development & Training</a>
     </div>
+  </section>
 
-    <div class="section-block" id="internships">
-      <h2>Internship Opportunities</h2>
-      <p>
-        We offer internship placements for graduate-level counseling and social work students seeking hands-on experience in a supportive, clinically focused environment. Interns gain exposure to real-world practice, including assessment, treatment planning, documentation, and client engagement.
-      </p>
-      <p>
-        All internships are structured to meet university and state requirements, with consistent supervision, clear expectations, and opportunities to build practical skills that translate beyond the classroom.
-      </p>
-      <p>
-        Currently only accepting interns with CT status in Ohio.
-      </p>
-    </div>
+  <main class="page-content">
+    <section class="section" id="supervision">
+      <div class="section-content">
+        <h2>Clinical Supervision</h2>
+        <p class="section-intro">
+          Supervision should be more than signing off on hours. It should build clinical confidence, sharpen thinking, strengthen ethical practice, and support the development of a grounded professional identity.
+        </p>
 
-    <div class="section-block" id="work-with-us">
-      <h2>Work With Us</h2>
-      <p>
-        Tough Cookie Counseling is always looking to connect with clinicians who value autonomy, integrity, and meaningful work.
-      </p>
-      <p>
-        All clinician roles with Tough Cookie Counseling are structured as 1099 independent contractor positions. This model offers flexibility and autonomy, allowing clinicians to manage their own schedules and caseloads while operating within a supportive, compliant framework.
-      </p>
-      <p>
-        Contractors are responsible for maintaining their own licensure, liability insurance, and tax obligations, in accordance with state and federal guidelines.
-      </p>
-      <p>
-        Ideal candidates are grounded, self-directed, and committed to serving first responders, families, and the broader community with intention and professionalism.
-      </p>
-      <p>
-        Please email us at toughcookiecounseling@gmail.com if interested in working with us.
-      </p>
-    </div>
+        <div class="offer-grid">
+          <div class="offer-card">
+            <h3>Developing Clinical Judgment</h3>
+            <p>
+              Support in strengthening case conceptualization, treatment planning, documentation, ethical decision-making, and overall confidence in practice.
+            </p>
+          </div>
 
-    <div class="section-block" id="ceu">
-      <h2>CEU Development & Training</h2>
-      <p>
-        We design and deliver continuing education and training opportunities tailored to the real-world needs of clinicians, first responders, and organizations. Topics focus on practical application, clinical relevance, and the unique challenges faced in high-stress roles, including trauma, substance use, ethics, and family systems.
-      </p>
-      <p>
-        Trainings are developed to meet state CEU requirements where applicable and can be offered as individual courses, group trainings, or customized programs for agencies and teams.
-      </p>
-    </div>
+          <div class="offer-card">
+            <h3>Reflective Supervision</h3>
+            <p>
+              Space to think through difficult cases, emotional responses, countertransference, boundaries, and the weight clinicians often carry in the work.
+            </p>
+          </div>
+
+          <div class="offer-card">
+            <h3>Practice Readiness</h3>
+            <p>
+              Guidance for clinicians who want supervision that is not only compliant, but also useful in preparing them for sustainable, capable long-term practice.
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-band">
+          <h3>Approach to Supervision</h3>
+          <p>
+            Supervision is offered with the same values that shape clinical work: honesty, steadiness, practical support, and respect for the complexity of the role. The goal is to help clinicians grow into thoughtful, grounded professionals rather than simply meet minimum requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="internships">
+      <div class="section-content">
+        <h2>Internships</h2>
+        <p class="section-intro">
+          Internship experiences should offer more than observation. They should provide meaningful exposure, strong mentorship, and opportunities to grow in both skill and confidence.
+        </p>
+
+        <div class="detail-band">
+          <h3>Training Future Clinicians</h3>
+          <p>
+            Tough Cookie Counseling values the development of emerging professionals and aims to create internship experiences that are structured, supportive, and grounded in real practice.
+          </p>
+          <p>
+            Internships are intended to help students build not only knowledge, but also judgment, professionalism, and a stronger sense of how they want to show up in the field.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work-with-us">
+      <div class="section-content">
+        <h2>Work With Us</h2>
+        <p class="section-intro">
+          As the practice grows, Tough Cookie Counseling is interested in building thoughtful professional relationships with clinicians and collaborators who value grounded care, integrity, and meaningful support.
+        </p>
+
+        <div class="two-column">
+          <div class="focus-box">
+            <h3>Shared Values</h3>
+            <p>
+              We are interested in working with people who value respect, strong ethics, emotional intelligence, and care that feels both human and clinically sound.
+            </p>
+          </div>
+
+          <div class="focus-box">
+            <h3>Thoughtful Growth</h3>
+            <p>
+              Growth is approached intentionally. The aim is not simply to expand, but to build something sustainable, capable, and aligned with the quality of care being offered.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ceu">
+      <div class="section-content">
+        <h2>CEU Development & Training</h2>
+        <p class="section-intro">
+          Professional development should be useful, relevant, and rooted in the realities clinicians are actually navigating. Training is strongest when it respects both the complexity of the work and the practical needs of the people doing it.
+        </p>
+
+        <div class="offer-grid">
+          <div class="offer-card">
+            <h3>Behavioral Health Topics</h3>
+            <p>
+              Training content may include clinical, ethical, operational, or systems-based topics relevant to behavioral health professionals.
+            </p>
+          </div>
+
+          <div class="offer-card">
+            <h3>First Responder-Focused Education</h3>
+            <p>
+              Development of training and educational content specific to the mental health realities of first responders and the family systems around them.
+            </p>
+          </div>
+
+          <div class="offer-card">
+            <h3>Practical Application</h3>
+            <p>
+              The goal is to provide learning that translates into better care, stronger decision-making, and more sustainable professional practice.
+            </p>
+          </div>
+        </div>
+
+        <div class="detail-band">
+          <h3>Training Philosophy</h3>
+          <p>
+            CEU development and professional training should not feel hollow or performative. The strongest education leaves people better equipped, more thoughtful, and more capable in the work they return to afterward.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <div class="closing-box">
+          <p>
+            Professional support at Tough Cookie Counseling is built around the same core standard as the rest of the practice: thoughtful work, real-world usefulness, and respect for the people carrying the responsibility.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="footer-left">
+      <p>Currently Scheduling clients in Ohio and Kentucky</p>
+      <img src="TCC Title Logo.png" class="footer-logo" alt="Tough Cookie Counseling logo">
+    </div>
+
+    <div class="footer-center">
+      <p>📞 (513) 327-8319</p>
+      <p>✉️ toughcookiecounseling@gmail.com</p>
+    </div>
+
+    <div class="footer-right">
+      <a href="#">Privacy Policy</a>
+      <p>2026 Tough Cookie Counseling</p>
+    </div>
+  </footer>
 </body>
 </html>
