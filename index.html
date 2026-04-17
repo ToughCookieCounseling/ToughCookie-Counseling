@@ -20,13 +20,14 @@ body {
   color: white;
 }
 
-/* NAVBAR */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #2a7f62;
-  padding: 10px 20px;
+  padding: 12px 24px;
+  position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -36,6 +37,7 @@ body {
 .nav-menu {
   display: flex;
   gap: 25px;
+  align-items: center;
 }
 
 .dropdown {
@@ -48,22 +50,26 @@ body {
   color: white;
   font-size: 16px;
   cursor: pointer;
+  padding: 8px 0;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
   background-color: #1f5f4a;
-  min-width: 160px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-  z-index: 1000;
+  min-width: 220px;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
+  z-index: 2000;
 }
 
 .dropdown-content a {
   display: block;
-  padding: 10px;
+  padding: 12px 14px;
   text-decoration: none;
   color: white;
+  white-space: nowrap;
 }
 
 .dropdown-content a:hover {
@@ -127,7 +133,7 @@ footer a {
 <!-- HEADER -->
 <header class="navbar">
   <a href="index.html">
-    <img src="Cookie Logo Only.png" class="logo">
+    <img src="Cookie Logo Only.png" class="logo" alt="Tough Cookie Counseling Home">
   </a>
 
   <nav class="nav-menu">
@@ -136,17 +142,17 @@ footer a {
       <div class="dropdown-content">
         <a href="about-tcc.html">About Tough Cookie Counseling</a>
         <a href="samantha-battrell.html">Samantha Battrell</a>
+      </div>
     </div>
-  </div>
 
-   <div class="dropdown">
+    <div class="dropdown">
       <button class="dropbtn">Services</button>
       <div class="dropdown-content">
         <a href="services.html">Clinical Services</a>
         <a href="services.html#peer-support">Peer Support</a>
         <a href="services.html#consulting">Consulting</a>
       </div>
-    </div
+    </div>
 
     <div class="dropdown">
       <button class="dropbtn">Professional</button>
@@ -156,7 +162,7 @@ footer a {
         <a href="professional.html#work-with-us">Work With Us</a>
         <a href="professional.html#ceu">CEU Development & Training</a>
       </div>
-     </div>
+    </div>
 
     <div class="dropdown">
       <button class="dropbtn">Specialties</button>
@@ -177,16 +183,16 @@ footer a {
         <a href="faq.html#first-responders-only">Do We Only Work with First Responders?</a>
         <a href="faq.html#rates">Rates & Payment</a>
         <a href="faq.html">View All FAQs</a>
+      </div>
     </div>
-  </div>
 
     <div class="dropdown">
       <button class="dropbtn">Contact</button>
       <div class="dropdown-content">
         <a href="contact.html">Contact Information</a>
         <a href="contact.html#schedule">How to Schedule</a>
+      </div>
     </div>
-  </div>
   </nav>
 </header>
 
