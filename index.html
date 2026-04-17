@@ -67,15 +67,44 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #2a7f62;
+  background: rgba(3, 36, 30, 0.95);
+  backdrop-filter: blur(6px);
   padding: 12px 24px;
   position: relative;
   z-index: 1000;
 }
 
+.navbar a {
+  color: #f5f1ea;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+}
+
+.navbar a:hover {
+  color: #d8cfc2;
+}  
+
 .logo {
   height: 40px;
 }
+
+ .logo-wrap {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   text-decoration: none;
+}
+
+.logo-text {
+  color: #f5f1ea;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.95;
+} 
 
 .nav-menu {
   display: flex;
@@ -176,10 +205,26 @@ footer a {
 
 <!-- HEADER -->
 <header class="navbar">
-  <a href="index.html">
-    <img src="Cookie Logo Only.png" class="logo" alt="Tough Cookie Counseling Home">
-  </a>
+ <a href="index.html" class="logo-wrap">
+  <img src="Cookie Logo Only.png" class="logo" alt="Tough Cookie Counseling Home">
+  <span class="logo-text">Tough Cookie Counseling</span>
+</a>
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-text {
+  color: #f5f1ea;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+  
   <nav class="nav-menu">
     <div class="dropdown">
       <div class="dropbtn">About</div>
