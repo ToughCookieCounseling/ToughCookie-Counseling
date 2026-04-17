@@ -1,419 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tough Cookie Counseling</title>
-  <meta name="description" content="Tough Cookie Counseling provides counseling, first responder mental health support, consulting, and clinical supervision.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tough Cookie Counseling</title>
 
-  <link rel="icon" type="image/png" href="Cookie Logo Only.png">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-  <style>
-    :root {
-      --sage: #6F7F6A;
-      --sage-deep: #5f6d5a;
-      --cream: #f4e6c1;
-      --paper: #f8f8f6;
-      --ink: #2f2f2f;
-      --soft-line: #d7d4ca;
-      --white: #ffffff;
-      --max: 1100px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
-      --radius: 16px;
-    }
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #6F7F6A;
+  padding: 10px 20px;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+.logo {
+  height: 40px;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
 
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.6;
-    }
+.dropdown {
+  position: relative;
+}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+.dropbtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    a {
-      color: inherit;
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(111, 127, 106, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(244, 230, 193, 0.18);
-    }
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
 
-    .nav-wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
 
-    .nav-wrap a {
-      text-decoration: none;
-      color: var(--cream);
-      font-family: Arial, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-    .nav-wrap a:hover {
-      opacity: 0.85;
-    }
+/* CONTENT */
+section {
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    .hero {
-      background: linear-gradient(rgba(111,127,106,0.96), rgba(111,127,106,0.93));
-      color: var(--cream);
-      padding: 72px 20px 88px;
-      text-align: center;
-    }
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
 
-    .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+p {
+  line-height: 1.6;
+}
 
-    .hero-logo {
-      max-width: 420px;
-      margin: 0 auto 18px;
-    }
+/* DIVIDER */
+hr {
+  width: 60%;
+  margin: auto;
+}
 
-    .eyebrow {
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      opacity: 0.9;
-      margin-bottom: 12px;
-    }
+/* FOOTER */
+footer {
+  background-color: #6F7F6A;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  flex-wrap: wrap;
+}
 
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.1;
-      font-weight: 700;
-    }
+.footer-left, .footer-center, .footer-right {
+  margin-bottom: 10px;
+}
 
-    .hero p {
-      max-width: 760px;
-      margin: 18px auto 0;
-      font-size: 1.15rem;
-    }
+.footer-logo {
+  width: 140px;
+  margin-top: 10px;
+}
 
-    .hero-actions {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
-    }
-
-    .btn-primary {
-      background: var(--cream);
-      color: var(--sage-deep);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(244,230,193,0.65);
-      color: var(--cream);
-    }
-
-    .section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 78px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 12px;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--sage-deep);
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto 38px;
-      text-align: center;
-      font-size: 1.05rem;
-    }
-
-    .about-card {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 34px;
-      align-items: center;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-card img {
-      width: 100%;
-      border-radius: 14px;
-      object-fit: cover;
-    }
-
-    .about-copy p {
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-
-    .credentials {
-      font-family: Arial, sans-serif;
-      color: var(--sage-deep);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin-bottom: 10px;
-    }
-
-    .service-grid,
-    .resource-grid,
-    .faq-grid,
-    .contact-grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .service-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .resource-grid,
-    .faq-grid,
-    .contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--sage-deep);
-      font-size: 1.25rem;
-    }
-
-    .muted {
-      color: #666;
-    }
-
-    .contact-card strong {
-      display: inline-block;
-      min-width: 70px;
-      color: var(--sage-deep);
-    }
-
-    .site-footer {
-      background: var(--sage);
-      color: var(--cream);
-      text-align: center;
-      padding: 28px 20px;
-      margin-top: 40px;
-      font-family: Arial, sans-serif;
-    }
-
-    @media (max-width: 860px) {
-      .about-card {
-        grid-template-columns: 1fr;
-      }
-
-      .service-grid,
-      .resource-grid,
-      .faq-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 58px;
-        padding-bottom: 70px;
-      }
-
-      .section {
-        padding: 60px 20px;
-      }
-    }
-  </style>
+footer a {
+  color: white;
+  text-decoration: underline;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="topbar">
-    <nav class="nav-wrap">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#faq">FAQ</a>
-      <a href="#resources">Resources</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<!-- HEADER -->
+<header class="navbar">
+  <a href="index.html">
+    <img src="Cookie Logo Only.png" class="logo">
+  </a>
+
+  <nav class="nav-menu">
+    <div class="dropdown">
+      <button class="dropbtn">About</button>
+      <div class="dropdown-content">
+        <a href="#">Welcome</a>
+        <a href="#">Why Us</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Services</button>
+      <div class="dropdown-content">
+        <a href="#">Individual</a>
+        <a href="#">Couples</a>
+        <a href="#">Family</a>
+        <a href="#">Assessments</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Professional</button>
+      <div class="dropdown-content">
+        <a href="#">Samantha</a>
+        <a href="#">Supervision</a>
+        <a href="#">Internships</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Specialties</button>
+      <div class="dropdown-content">
+        <a href="#">Trauma</a>
+        <a href="#">Burnout</a>
+        <a href="#">PTSD</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">FAQs</button>
+      <div class="dropdown-content">
+        <a href="#">What is Therapy?</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Contact</button>
+      <div class="dropdown-content">
+        <a href="#">Contact Info</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- WELCOME -->
+<section>
+  <h1>Welcome!</h1>
+
+  <p>
+    At Tough Cookie Counseling, we specialize in supporting those who carry more than most. Our work centers on first responders, the individuals who stand beside them, and the families shaped by both the demands and the meaning of that role.
+  </p>
+
+  <p>
+    We provide therapy for first responders navigating the weight of service, couples both within and outside of first responder life, and families seeking stability, connection, and understanding.
+  </p>
+
+  <p>
+    This is a space where resilience is respected, complexity is understood, and real support begins.
+  </p>
+</section>
+
+<hr>
+
+<!-- WHY US -->
+<section>
+  <h1>Why Us?</h1>
+
+  <p>
+    Many of our therapists bring lived experience as first responders and as partners, parents, children and loved ones who share in that life.
+  </p>
+
+  <p><strong>This is a unique fluency.</strong></p>
+
+  <p>
+    Our team is deeply committed to serving the first responder community and those connected to it.
+  </p>
+
+  <p>
+    Because of that, our approach is both clinically sound and context aware. We meet you where you are.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <p>Currently Scheduling clients in Ohio and Kentucky</p>
+    <img src="TCC Title Logo.png" class="footer-logo">
   </div>
 
-  <header class="hero" id="home">
-    <div class="hero-inner">
-      <img class="hero-logo" src="TCC Title Logo.png" alt="Tough Cookie Counseling logo">
-      <div class="eyebrow">Counseling • Consulting • Clinical Support</div>
-      <h1>Support for those who carry more than most people see.</h1>
-      <p>
-        Tough Cookie Counseling offers thoughtful, grounded care for first responders,
-        professionals, and families navigating stress, trauma, and major life transitions.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:toughcookiecounseling@gmail.com">Request an Appointment</a>
-        <a class="btn btn-secondary" href="#contact">Start Here</a>
-      </div>
-    </div>
-  </header>
+  <div class="footer-center">
+    <p>📞 (513) 327-8319</p>
+    <p>✉️ toughcookiecounseling@gmail.com</p>
+  </div>
 
-  <section class="section" id="about">
-    <h2 class="section-title">About</h2>
-    <p class="section-intro">
-      Introduces the heart behind the practice, the training behind the work, and the steady hand clients can expect when they arrive.
-    </p>
-
-    <div class="about-card">
-      <img src="Head shot Sam Prof.png" alt="Samantha Reynolds-Battrell professional headshot">
-      <div class="about-copy">
-        <div class="credentials">Samantha Reynolds-Battrell, LPCC-S, LICDC</div>
-        <p>
-          I’m a therapist, clinical leader, and founder committed to helping people navigate high-pressure roles, trauma exposure, and life transitions with clarity and steadiness.
-        </p>
-        <p>
-          My work is especially focused on first responders, professionals, and families who often function well on the outside while carrying heavy, unseen stress underneath.
-        </p>
-        <p>
-          My therapeutic style is direct, compassionate, and practical. I believe people deserve care that respects both their resilience and their pain, without forcing them to choose between the two.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="services">
-    <h2 class="section-title">Services</h2>
-    <p class="section-intro">
-      Focused support designed to meet people where they are, whether they are navigating burnout, trauma, family strain, or professional demands.
-    </p>
-
-    <div class="service-grid">
-      <div class="card">
-        <h3>Individual Counseling</h3>
-        <p>One-on-one therapy for adults navigating anxiety, trauma, stress, burnout, grief, and life transition.</p>
-      </div>
-      <div class="card">
-        <h3>First Responder Mental Health</h3>
-        <p>Support tailored to the unique realities of service, shift work, trauma exposure, and the weight of carrying responsibility for others.</p>
-      </div>
-      <div class="card">
-        <h3>Consulting</h3>
-        <p>Clinical and organizational consulting for behavioral health, leadership, training, and program development needs.</p>
-      </div>
-      <div class="card">
-        <h3>Clinical Training & Supervision</h3>
-        <p>Support for developing clinicians, teams, and programs with a focus on quality, compliance, and practical clinical growth.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq">
-    <h2 class="section-title">FAQ</h2>
-    <div class="faq-grid">
-      <div class="card">
-        <h3>What should I expect in a first session?</h3>
-        <p>We’ll talk through what brought you in, what feels hardest right now, and what you want help changing. The first session is about clarity, not pressure.</p>
-      </div>
-      <div class="card">
-        <h3>Is therapy confidential?</h3>
-        <p>Yes. Therapy is confidential with standard legal and safety-related exceptions, which will be reviewed clearly at the beginning of services.</p>
-      </div>
-      <div class="card">
-        <h3>Do you work with first responders?</h3>
-        <p>Yes. This is a primary focus of the practice and an area of deep professional and personal understanding.</p>
-      </div>
-      <div class="card">
-        <h3>How do I get started?</h3>
-        <p>Use the contact section below to reach out, and you’ll be guided to the next step for scheduling or intake.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="resources">
-    <h2 class="section-title">Blog / Resources</h2>
-    <div class="resource-grid">
-      <div class="card">
-        <h3>Coming Soon</h3>
-        <p>Articles, guides, and practical resources for clients, first responders, and families navigating high-stress environments.</p>
-      </div>
-      <div class="card">
-        <h3>Future Topics</h3>
-        <p class="muted">Burnout, trauma recovery, family support, resilience, leadership strain, and mental health in service roles.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-intro">
-      Reaching out should feel simple. Start here.
-    </p>
-
-    <div class="contact-grid">
-      <div class="card contact-card">
-        <h3>Get in Touch</h3>
-        <p><strong>Phone:</strong> 513-327-8319</p>
-        <p><strong>Email:</strong> toughcookiecounseling@gmail.com</p>
-        <p><strong>Website:</strong> toughcookiecounseling.com</p>
-        <p class="muted">For privacy, avoid sending sensitive clinical information through regular email.</p>
-      </div>
-      <div class="card">
-        <h3>Start Here</h3>
-        <p>Ready to take the next step? Reach out to ask about scheduling, services, or next steps for working together.</p>
-        <a class="btn btn-primary" href="mailto:toughcookiecounseling@gmail.com">Contact Tough Cookie Counseling</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    © Tough Cookie Counseling
-  </footer>
+  <div class="footer-right">
+    <a href="#">Privacy Policy</a>
+    <p>2026 Tough Cookie Counseling</p>
+  </div>
+</footer>
 
 </body>
 </html>
