@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQs | Tough Cookie Counseling</title>
+  <title>Tough Cookie Counseling</title>
   <style>
     body {
       margin: 0;
@@ -87,50 +87,96 @@
 
     .hero {
       text-align: center;
-      padding: 80px 20px 50px;
-      max-width: 900px;
+      padding: 110px 20px 90px;
+      max-width: 950px;
       margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       letter-spacing: 3px;
       margin-bottom: 18px;
+      line-height: 1.1;
     }
 
     .hero p {
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       max-width: 760px;
-      margin: 0 auto;
+      margin: 0 auto 18px;
       color: #f0dfc7;
     }
 
-    .faq-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 10px 20px 80px;
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: #f5efe6;
+      margin-bottom: 26px;
     }
 
-    .faq-item {
+    .cta-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: #f5efe6;
+      color: #022f2f;
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(245, 239, 230, 0.4);
+      color: #f5efe6;
+      background: transparent;
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .home-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
       background: rgba(0, 0, 0, 0.16);
       border: 1px solid rgba(245, 239, 230, 0.12);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 28px;
-      margin-bottom: 24px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
-    .faq-item h2 {
+    .card h2 {
       margin-top: 0;
       margin-bottom: 14px;
-      font-size: 1.45rem;
+      font-size: 1.3rem;
       letter-spacing: 1px;
       color: #f5efe6;
     }
 
-    .faq-item p {
+    .card p {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
     footer {
@@ -158,7 +204,7 @@
       }
 
       .hero {
-        padding: 60px 20px 35px;
+        padding: 70px 20px 55px;
       }
 
       .hero h1 {
@@ -166,12 +212,8 @@
         letter-spacing: 2px;
       }
 
-      .faq-item {
-        padding: 22px;
-      }
-
-      .faq-item h2 {
-        font-size: 1.25rem;
+      .hero .tagline {
+        font-size: 1.08rem;
       }
     }
   </style>
@@ -206,55 +248,49 @@
 
   <main>
     <section class="hero">
-      <h1>FREQUENTLY ASKED QUESTIONS</h1>
+      <h1>TOUGH COOKIE COUNSELING</h1>
+      <p class="tagline">Because tough doesn’t mean untouchable.</p>
       <p>
-        A few common questions about therapy, telehealth, and getting started with Tough Cookie Counseling.
+        Counseling, consultation, and clinical support rooted in real-world experience,
+        genuine connection, and care that meets people where they are.
       </p>
+      <p>
+        Tough Cookie Counseling offers a grounded, human approach for individuals,
+        families, and professionals navigating stress, trauma, transition, and the
+        weight of everyday life.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="contact.html" class="button-primary">Start Here</a>
+        <a href="about-tcc.html" class="button-secondary">Learn More</a>
+      </div>
     </section>
 
-    <section class="faq-section">
-      <div class="faq-item">
-        <h2>What is therapy?</h2>
-        <p>
-          Therapy is a space to talk honestly, reflect more deeply, and work through what feels heavy, overwhelming, or stuck. It can offer support, insight, and practical tools for navigating stress, trauma, relationships, life transitions, and the parts of life that feel hard to carry alone.
-        </p>
-      </div>
+    <section class="home-section">
+      <div class="section-grid">
+        <div class="card">
+          <h2>Grounded Care</h2>
+          <p>
+            Thoughtful, practical support for people who want therapy to feel honest,
+            useful, and emotionally safe.
+          </p>
+        </div>
 
-      <div class="faq-item">
-        <h2>Do you take insurance?</h2>
-        <p>
-          We are currently in the process of credentialing with several insurance providers. At this time, services are offered on a private-pay basis while paneling is being finalized.
-          <br><br>
-          We are happy to provide a superbill upon request for potential out-of-network reimbursement, depending on your plan.
-        </p>
-      </div>
+        <div class="card">
+          <h2>Clinical Experience</h2>
+          <p>
+            Services shaped by leadership, behavioral health expertise, and a deep
+            respect for the realities clients and families are carrying.
+          </p>
+        </div>
 
-      <div class="faq-item">
-        <h2>Do you offer telehealth services?</h2>
-        <p>
-          Yes, we offer secure telehealth sessions for clients located in Ohio and Kentucky. Telehealth provides a flexible and accessible option for care while maintaining the same level of quality and confidentiality as in-person services.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>How do I get started?</h2>
-        <p>
-          The easiest way to get started is to visit the Contact page and reach out by phone or email. From there, we can talk through next steps, availability, and whether the practice feels like the right fit for your needs.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>What if I am not sure therapy is the right fit?</h2>
-        <p>
-          That is completely okay. Many people reach out with questions before making a decision. Starting with a conversation can help clarify what you are looking for and whether this feels like the right place to begin.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Is what I share confidential?</h2>
-        <p>
-          Yes. Your privacy is taken seriously, and services are provided with confidentiality in mind, subject to the legal and ethical limits required by law.
-        </p>
+        <div class="card">
+          <h2>Flexible Support</h2>
+          <p>
+            Telehealth services are available for clients in Ohio and Kentucky, making
+            care more accessible without sacrificing connection or confidentiality.
+          </p>
+        </div>
       </div>
     </section>
   </main>
