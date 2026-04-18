@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tough Cookie Counseling</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     body {
       margin: 0;
       font-family: Georgia, serif;
       color: #f5efe6;
-      background: linear-gradient(135deg, #022f2f 0%, #0a5c50 50%, #0f6b5b 100%);
+      background: linear-gradient(135deg, #022f2f 0%, #0a5c50 45%, #0f6b5b 100%);
+      line-height: 1.7;
     }
 
     header {
-      padding: 20px 40px;
-      background: rgba(0,0,0,0.2);
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid rgba(245, 239, 230, 0.15);
+      padding: 18px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo {
+      font-size: 1.1rem;
       font-weight: bold;
       letter-spacing: 1px;
+      color: #f5efe6;
       text-transform: uppercase;
+      text-decoration: none;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 24px;
       margin: 0;
       padding: 0;
+      align-items: center;
     }
 
     .nav-links li {
@@ -45,21 +55,30 @@
     .nav-links a {
       color: #f5efe6;
       text-decoration: none;
+      font-size: 0.95rem;
       font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #d8c3a5;
     }
 
     .dropdown-content {
       display: none;
       position: absolute;
-      background: #0c3b37;
-      min-width: 200px;
       top: 100%;
       left: 0;
+      min-width: 220px;
+      background: #0c3b37;
+      border: 1px solid rgba(245, 239, 230, 0.12);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      z-index: 999;
     }
 
     .dropdown-content a {
       display: block;
-      padding: 10px;
+      padding: 12px 16px;
+      font-size: 0.92rem;
     }
 
     .dropdown:hover .dropdown-content {
@@ -68,95 +87,216 @@
 
     .hero {
       text-align: center;
-      padding: 120px 20px 100px;
-      max-width: 900px;
-      margin: auto;
+      padding: 110px 20px 90px;
+      max-width: 950px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       letter-spacing: 3px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      line-height: 1.1;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      font-size: 1.12rem;
+      max-width: 760px;
+      margin: 0 auto 18px;
+      color: #f0dfc7;
     }
 
-    .cta {
-      margin-top: 30px;
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: #f5efe6;
+      margin-bottom: 26px;
     }
 
-    .cta a {
+    .cta-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .button-primary,
+    .button-secondary {
       display: inline-block;
       padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
       background: #f5efe6;
       color: #022f2f;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(245, 239, 230, 0.4);
+      color: #f5efe6;
+      background: transparent;
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .home-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(245, 239, 230, 0.12);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      color: #f5efe6;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 1rem;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.2);
-      margin-top: 80px;
+      padding: 30px 20px;
+      border-top: 1px solid rgba(245, 239, 230, 0.15);
+      background: rgba(0, 0, 0, 0.18);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 70px 20px 55px;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+        letter-spacing: 2px;
+      }
+
+      .hero .tagline {
+        font-size: 1.08rem;
+      }
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <nav>
+      <a class="logo" href="index.html">Tough Cookie Counseling</a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="#">About</a>
+          <div class="dropdown-content">
+            <a href="about-tcc.html">About TCC</a>
+            <a href="samantha-battrell.html">Samantha Battrell</a>
+          </div>
+        </li>
 
-<header>
-  <nav>
-    <div class="logo">Tough Cookie Counseling</div>
+        <li class="dropdown">
+          <a href="services.html">Services</a>
+          <div class="dropdown-content">
+            <a href="services.html">Services Overview</a>
+            <a href="specialties.html">Specialties</a>
+          </div>
+        </li>
 
-    <ul class="nav-links">
-      <li class="dropdown">
-        <a href="#">About</a>
-        <div class="dropdown-content">
-          <a href="about-tcc.html">About TCC</a>
-          <a href="samantha-battrell.html">Samantha Battrell</a>
+        <li><a href="specialties.html">Specialties</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>TOUGH COOKIE COUNSELING</h1>
+      <p class="tagline">Because tough doesn’t mean untouchable.</p>
+      <p>
+        Counseling, consultation, and clinical support rooted in real-world experience,
+        genuine connection, and care that meets people where they are.
+      </p>
+      <p>
+        Tough Cookie Counseling offers a grounded, human approach for individuals,
+        families, and professionals navigating stress, trauma, transition, and the
+        weight of everyday life.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="contact.html" class="button-primary">Start Here</a>
+        <a href="about-tcc.html" class="button-secondary">Learn More</a>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="section-grid">
+        <div class="card">
+          <h2>Grounded Care</h2>
+          <p>
+            Thoughtful, practical support for people who want therapy to feel honest,
+            useful, and emotionally safe.
+          </p>
         </div>
-      </li>
 
-      <li class="dropdown">
-        <a href="services.html">Services</a>
-        <div class="dropdown-content">
-          <a href="services.html">Services Overview</a>
-          <a href="specialties.html">Specialties</a>
+        <div class="card">
+          <h2>Clinical Experience</h2>
+          <p>
+            Services shaped by leadership, behavioral health expertise, and a deep
+            respect for the realities clients and families are carrying.
+          </p>
         </div>
-      </li>
 
-      <li><a href="specialties.html">Specialties</a></li>
-      <li><a href="faq.html">FAQs</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+        <div class="card">
+          <h2>Flexible Support</h2>
+          <p>
+            Telehealth services are available for clients in Ohio and Kentucky, making
+            care more accessible without sacrificing connection or confidentiality.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section class="hero">
-  <h1>TOUGH COOKIE COUNSELING</h1>
-
-  <p>
-    Counseling, consultation, and support designed for individuals, families, and professionals navigating real-world stress, trauma, and transition.
-  </p>
-
-  <p>
-    Rooted in clinical expertise and grounded in lived experience, this work meets people where they are — without pretense, without pressure, and without losing sight of what matters.
-  </p>
-
-  <div class="cta">
-    <a href="contact.html">Start Here</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 Tough Cookie Counseling. All rights reserved.
-</footer>
-
+  <footer>
+    &copy; 2026 Tough Cookie Counseling. All rights reserved.
+  </footer>
 </body>
 </html>
