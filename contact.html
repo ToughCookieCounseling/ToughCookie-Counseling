@@ -3,263 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Tough Cookie Counseling</title>
-
+  <title>Contact - Tough Cookie Counseling</title>
   <style>
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at 70% 65%, rgba(9, 53, 43, 0.75) 0%, rgba(9, 53, 43, 0) 28%),
-        radial-gradient(circle at 30% 25%, rgba(0, 80, 60, 0.35) 0%, rgba(0, 80, 60, 0) 22%),
-        linear-gradient(115deg, #021f1a 0%, #06352d 32%, #0b5a4b 58%, #03241e 100%);
+      font-family: Arial, sans-serif;
+      color: #2f2f2f;
+      background-color: #ffffff;
+    }
+
+    header {
+      background-color: #6F7F6A;
+      padding: 15px 25px;
+    }
+
+    header a {
       color: white;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(3, 36, 30, 0.95);
-      padding: 12px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(245, 241, 234, 0.12);
-    }
-
-    .logo {
-      height: 40px;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       text-decoration: none;
+      font-weight: bold;
     }
 
-    .logo-text {
-      color: #f5f1ea;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 1rem;
+    main {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 60px 30px;
     }
 
-    .nav-menu {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
     }
 
-    .navbar a,
-    .dropbtn {
-      color: #f5f1ea;
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      font-size: 0.95rem;
+    h2 {
+      font-size: 26px;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      color: #6F7F6A;
     }
 
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: rgba(3, 36, 30, 0.98);
-      min-width: 220px;
-      top: 100%;
-      left: 0;
-      z-index: 1001;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px;
-      color: white;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 90px 20px 50px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    p {
+      line-height: 1.7;
       margin-bottom: 16px;
     }
 
-    .hero p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #e8e2d9;
+    .contact-card {
+      background-color: #f8f8f5;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 25px;
+      margin-bottom: 35px;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px 100px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .contact-info {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: #e8e2d9;
-    }
-
-    .contact-box {
-      background: rgba(3, 36, 30, 0.45);
-      padding: 30px;
-      border: 1px solid rgba(245, 241, 234, 0.12);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 14px;
-      border: none;
-      background: rgba(255,255,255,0.08);
-      color: white;
-      font-family: inherit;
-    }
-
-    textarea {
-      min-height: 120px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      background: #0b5a4b;
-      color: white;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0e6f5d;
+    .contact-card a {
+      color: #2f2f2f;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .note {
-      font-size: 0.9rem;
-      color: #cfc7bd;
-      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
     }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      padding: 30px 20px;
-      background: rgba(3, 36, 30, 0.9);
-      flex-wrap: wrap;
-    }
-
-    .footer-logo {
-      width: 140px;
-    }
-
-    @media(max-width: 900px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
   </style>
 </head>
-
 <body>
+  <header>
+    <a href="index.html">← Home</a>
+  </header>
 
-<header class="navbar">
-  <a href="index.html" class="logo-wrap">
-    <img src="Cookie Logo Only.png" class="logo">
-    <span class="logo-text">Tough Cookie Counseling</span>
-  </a>
+  <main>
+    <h1>Contact</h1>
+    <p>
+      We welcome inquiries from first responders, loved ones, families, and individuals seeking grounded, thoughtful support.
+    </p>
 
-  <nav class="nav-menu">
-    <div class="dropdown">
-      <div class="dropbtn">About</div>
-      <div class="dropdown-content">
-        <a href="about-tcc.html">About</a>
-        <a href="samantha-battrell.html">Samantha</a>
-      </div>
+    <div class="contact-card">
+      <p><strong>Phone / Text:</strong> <a href="tel:+15133278319">(513) 327-8319</a></p>
+      <p><strong>Email:</strong> <a href="mailto:toughcookiecounseling@gmail.com">toughcookiecounseling@gmail.com</a></p>
+      <p><strong>Service Area:</strong> Currently scheduling clients in Ohio and Kentucky</p>
     </div>
 
-    <a href="services.html">Services</a>
-    <a href="specialties.html">Specialties</a>
-    <a href="FAQs.html">FAQs</a>
-    <a href="Contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Start Here</h1>
-  <p>
-    Reaching out can feel like the hardest step. Whether you are ready to begin or just have questions, you are welcome to connect.
-  </p>
-</section>
-
-<div class="container">
-
-  <div class="contact-grid">
-
-    <div class="contact-info">
-      <p><strong>Phone:</strong> (513) 327-8319</p>
-      <p><strong>Email:</strong> toughcookiecounseling@gmail.com</p>
-      <p><strong>Location:</strong> Serving Ohio and Kentucky</p>
-
-      <p style="margin-top:20px;">
-        You can reach out directly by phone or email, or use the form to get started. We will follow up to discuss next steps, availability, and whether this feels like a good fit.
+    <div id="schedule">
+      <h2>How to Schedule</h2>
+      <p>
+        To schedule services, please call or text <a href="tel:+15133278319">(513) 327-8319</a> or email <a href="mailto:toughcookiecounseling@gmail.com">toughcookiecounseling@gmail.com</a>.
       </p>
-    </div>
-
-    <div class="contact-box">
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Phone Number">
-        <textarea placeholder="How can I help?"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-
+      <p>
+        When reaching out, feel free to include your name, your general reason for seeking services, and whether you are looking for individual, couples, family, or other support.
+      </p>
+      <p>
+        We will respond as promptly as possible with next steps and availability.
+      </p>
       <p class="note">
-        This form is for general contact only. Please do not include sensitive or urgent clinical information.
+        A website message system can be added later, but for now phone, text, and email are the cleanest and easiest ways for clients to reach you.
       </p>
     </div>
-
-  </div>
-
-</div>
-
-<footer>
-  <div>
-    <p>Currently Scheduling clients in Ohio and Kentucky</p>
-    <img src="TCC Title Logo.png" class="footer-logo">
-  </div>
-
-  <div>
-    <p>2026 Tough Cookie Counseling</p>
-  </div>
-</footer>
-
+  </main>
 </body>
 </html>
