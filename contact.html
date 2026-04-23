@@ -1,104 +1,152 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Tough Cookie Counseling</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #2f2f2f;
-      background-color: #ffffff;
-    }
-
-    header {
-      background-color: #6F7F6A;
-      padding: 15px 25px;
-    }
-
-    header a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 60px 30px;
-    }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 26px;
-      margin-top: 40px;
-      margin-bottom: 15px;
-      color: #6F7F6A;
-    }
-
-    p {
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .contact-card {
-      background-color: #f8f8f5;
-      border: 1px solid #e5e5e5;
-      border-radius: 10px;
-      padding: 24px;
-      margin-top: 25px;
-      margin-bottom: 35px;
-    }
-
-    .contact-card a {
-      color: #2f2f2f;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .note {
-      font-size: 16px;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Tough Cookie Counseling — call, text, or email to schedule therapy in Ohio and Kentucky." />
+  <title>Contact | Tough Cookie Counseling</title>
+  <link rel="icon" type="image/png" href="assets/images/fav.png" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  <header>
-    <a href="index.html">← Home</a>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/images/Cookie Logo Only.png" class="navbar-logo" alt="Tough Cookie Counseling logo" />
+      <span class="logo-text">Tough Cookie Counseling</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <div class="dropdown">
+        <button class="dropbtn">About</button>
+        <div class="dropdown-content">
+          <a href="about-tcc.html">About Tough Cookie Counseling</a>
+          <a href="samantha-battrell.html">Samantha Battrell</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+          <a href="services.html">Clinical Services</a>
+          <a href="services.html#peer-support">Peer Support</a>
+          <a href="services.html#consulting">Consulting</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Professional</button>
+        <div class="dropdown-content">
+          <a href="professional.html#supervision">Clinical Supervision</a>
+          <a href="professional.html#internships">Internships</a>
+          <a href="professional.html#work-with-us">Work With Us</a>
+          <a href="professional.html#ceu">CEU Development &amp; Training</a>
+        </div>
+      </div>
+      <a href="specialties.html">Specialties</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main>
+  <!-- ── Hero Mini ──────────────────────────────────────── -->
+  <section class="hero-mini">
     <h1>Contact</h1>
     <p>
-      We welcome inquiries from first responders, loved ones, families, and individuals seeking grounded, thoughtful support.
+      We welcome inquiries from first responders, loved ones, families, and individuals seeking
+      grounded, thoughtful support.
     </p>
+  </section>
 
-    <div class="contact-card">
-      <p><strong>Phone / Text:</strong> <a href="tel:+15133278319">(513) 327-8319</a></p>
-      <p><strong>Email:</strong> <a href="mailto:toughcookiecounseling@gmail.com">toughcookiecounseling@gmail.com</a></p>
-      <p><strong>Service Area:</strong> Currently scheduling clients in Ohio and Kentucky</p>
-    </div>
+  <!-- ── Main Content ───────────────────────────────────── -->
+  <main class="page-content">
 
-    <div id="schedule">
-      <h2>How to Schedule</h2>
-      <p>
-        To schedule services, please call or text <a href="tel:+15133278319">(513) 327-8319</a> or email <a href="mailto:toughcookiecounseling@gmail.com">toughcookiecounseling@gmail.com</a>.
-      </p>
-      <p>
-        When reaching out, feel free to include your name, your general reason for seeking services, and whether you are looking for individual, couples, family, or other support.
-      </p>
-      <p>
-        We will respond as promptly as possible with next steps and availability.
-      </p>
-      <p class="note">
-        A website message system can be added later, but for now phone, text, and email are the cleanest and easiest ways for clients to reach you.
-      </p>
-    </div>
+    <section class="section">
+      <div class="section-content">
+        <h2>Get in Touch</h2>
+
+        <div class="contact-grid">
+
+          <div class="contact-info-card">
+            <h3>How to Schedule</h3>
+            <div class="contact-line">
+              <span class="icon">📞</span>
+              <div>
+                <strong>Phone / Text</strong><br />
+                <a href="tel:15133278319">(513) 327-8319</a>
+              </div>
+            </div>
+            <div class="contact-line">
+              <span class="icon">✉️</span>
+              <div>
+                <strong>Email</strong><br />
+                <a href="mailto:toughcookiecounseling@gmail.com">toughcookiecounseling@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-line">
+              <span class="icon">📍</span>
+              <div>
+                <strong>Service Area</strong><br />
+                Currently scheduling clients in Ohio and Kentucky
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <h3>What to Expect</h3>
+            <p>
+              When reaching out, feel free to include your name, your general reason for seeking services,
+              and whether you are looking for individual, couples, family, or other support.
+            </p>
+            <p>
+              We will respond as promptly as possible with next steps and availability.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="closing-box" style="margin-top: 40px;">
+          <p class="quote">
+            "If you're still unsure, you're not alone. Reaching out is the hardest part — everything after that, we figure out together."
+          </p>
+        </div>
+
+      </div>
+    </section>
+
   </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-scheduling">Currently Scheduling clients in Ohio and Kentucky</div>
+        <a class="footer-logo-wrap" href="index.html">
+          <img src="assets/images/Cookie Logo Only.png" class="footer-logo-img" alt="Tough Cookie Counseling logo" />
+          <span class="footer-logo-text">Tough Cookie Counseling</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:15133278319">📞 (513) 327-8319</a>
+        <a href="mailto:toughcookiecounseling@gmail.com">✉️ toughcookiecounseling@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="services.html">Services</a>
+        <a href="specialties.html">Specialties</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div><a href="NOTICEOFPRIVACYPRACTICES.docx" target="_blank">Privacy Policy</a></div>
+      <div>© 2026 Tough Cookie Counseling</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>
+

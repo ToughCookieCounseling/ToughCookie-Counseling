@@ -1,302 +1,315 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tough Cookie Counseling</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      color: #f5efe6;
-      background: linear-gradient(135deg, #022f2f 0%, #0a5c50 45%, #0f6b5b 100%);
-      line-height: 1.7;
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.25);
-      border-bottom: 1px solid rgba(245, 239, 230, 0.15);
-      padding: 18px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(6px);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.1rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #f5efe6;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links a {
-      color: #f5efe6;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #d8c3a5;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 220px;
-      background: #0c3b37;
-      border: 1px solid rgba(245, 239, 230, 0.12);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-      z-index: 999;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px 16px;
-      font-size: 0.92rem;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 110px 20px 90px;
-      max-width: 950px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      letter-spacing: 3px;
-      margin-bottom: 18px;
-      line-height: 1.1;
-    }
-
-    .hero p {
-      font-size: 1.12rem;
-      max-width: 760px;
-      margin: 0 auto 18px;
-      color: #f0dfc7;
-    }
-
-    .hero .tagline {
-      font-size: 1.25rem;
-      color: #f5efe6;
-      margin-bottom: 26px;
-    }
-
-    .cta-buttons {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .button-primary,
-    .button-secondary {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s ease;
-    }
-
-    .button-primary {
-      background: #f5efe6;
-      color: #022f2f;
-    }
-
-    .button-secondary {
-      border: 1px solid rgba(245, 239, 230, 0.4);
-      color: #f5efe6;
-      background: transparent;
-    }
-
-    .button-primary:hover,
-    .button-secondary:hover {
-      transform: translateY(-1px);
-    }
-
-    .home-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 20px 80px;
-    }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: rgba(0, 0, 0, 0.16);
-      border: 1px solid rgba(245, 239, 230, 0.12);
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      font-size: 1.3rem;
-      letter-spacing: 1px;
-      color: #f5efe6;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid rgba(245, 239, 230, 0.15);
-      background: rgba(0, 0, 0, 0.18);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 16px 20px;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .hero {
-        padding: 70px 20px 55px;
-      }
-
-      .hero h1 {
-        font-size: 2.3rem;
-        letter-spacing: 2px;
-      }
-
-      .hero .tagline {
-        font-size: 1.08rem;
-      }
-    }
-  </style>
+  <meta name="description" content="Frequently asked questions about therapy at Tough Cookie Counseling — how it works, costs, insurance, confidentiality, and more." />
+  <title>FAQs | Tough Cookie Counseling</title>
+  <link rel="icon" type="image/png" href="assets/images/fav.png" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="logo" href="index.html">Tough Cookie Counseling</a>
-      <ul class="nav-links">
-        <li class="dropdown">
-          <a href="#">About</a>
-          <div class="dropdown-content">
-            <a href="about-tcc.html">About TCC</a>
-            <a href="samantha-battrell.html">Samantha Battrell</a>
-          </div>
-        </li>
 
-        <li class="dropdown">
-          <a href="services.html">Services</a>
-          <div class="dropdown-content">
-            <a href="services.html">Services Overview</a>
-            <a href="specialties.html">Specialties</a>
-          </div>
-        </li>
-
-        <li><a href="specialties.html">Specialties</a></li>
-        <li><a href="faq.html">FAQs</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/images/Cookie Logo Only.png" class="navbar-logo" alt="Tough Cookie Counseling logo" />
+      <span class="logo-text">Tough Cookie Counseling</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <div class="dropdown">
+        <button class="dropbtn">About</button>
+        <div class="dropdown-content">
+          <a href="about-tcc.html">About Tough Cookie Counseling</a>
+          <a href="samantha-battrell.html">Samantha Battrell</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+          <a href="services.html">Clinical Services</a>
+          <a href="services.html#peer-support">Peer Support</a>
+          <a href="services.html#consulting">Consulting</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Professional</button>
+        <div class="dropdown-content">
+          <a href="professional.html#supervision">Clinical Supervision</a>
+          <a href="professional.html#internships">Internships</a>
+          <a href="professional.html#work-with-us">Work With Us</a>
+          <a href="professional.html#ceu">CEU Development &amp; Training</a>
+        </div>
+      </div>
+      <a href="specialties.html">Specialties</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>TOUGH COOKIE COUNSELING</h1>
-      <p class="tagline">Because tough doesn’t mean untouchable.</p>
-      <p>
-        Counseling, consultation, and clinical support rooted in real-world experience,
-        genuine connection, and care that meets people where they are.
-      </p>
-      <p>
-        Tough Cookie Counseling offers a grounded, human approach for individuals,
-        families, and professionals navigating stress, trauma, transition, and the
-        weight of everyday life.
-      </p>
+  <!-- ── Hero Mini ──────────────────────────────────────── -->
+  <section class="hero-mini">
+    <h1>Frequently Asked Questions</h1>
+    <p>Answers to common questions about therapy, services, costs, and how to get started.</p>
+  </section>
 
-      <div class="cta-buttons">
-        <a href="contact.html" class="button-primary">Start Here</a>
-        <a href="about-tcc.html" class="button-secondary">Learn More</a>
+  <!-- ── Main Content ───────────────────────────────────── -->
+  <main class="page-content">
+
+    <section class="section">
+      <div class="section-content">
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is therapy?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Therapy is a structured, confidential space where you can talk openly, process experiences,
+                and work through challenges with a trained professional. It is not about being "fixed" or
+                told what to do. It is about gaining clarity, building skills, and having a place where you
+                do not have to carry everything on your own.
+              </p>
+              <p>
+                For first responders and their families, therapy often focuses on navigating stress, trauma,
+                and the impact of the job on daily life.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How does it work?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Therapy is a collaborative process. It typically begins with an initial session to understand
+                your needs, goals, and background. From there, sessions focus on identifying patterns,
+                developing coping strategies, improving communication, and working through specific concerns
+                at a pace that makes sense for you.
+              </p>
+              <p>
+                Sessions can be short-term and solution-focused or longer-term for deeper work. Everything
+                is tailored to your situation, whether you are addressing a specific issue or looking for
+                ongoing support.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Who should go to therapy?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Therapy is for anyone looking for support — not just those in crisis. You might benefit
+                from therapy if you are feeling overwhelmed, navigating relationship challenges, processing
+                difficult experiences, or simply trying to function better in your day-to-day life.
+              </p>
+              <p>
+                For first responders and those connected to them, therapy can be especially helpful in
+                managing the unique pressures of the role, maintaining relationships, and staying grounded
+                in the face of ongoing stress.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What can I expect in the first session?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                A conversation. I will ask you to either describe what brought you in, or ask questions
+                to help clarify if you are unsure or having a difficult time identifying specifics.
+                Every step is collaborative with your goals in mind.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I have to know what I want to work on?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely not.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you offer virtual or in-person sessions?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We currently offer both.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you only work with first responders and their loved ones?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                No. While Tough Cookie Counseling was built with a strong focus on supporting first
+                responders and those connected to them, our services are open to anyone seeking thoughtful,
+                effective mental health care.
+              </p>
+              <p>
+                We have specialized experience working within first responder culture, including the stressors,
+                expectations, and impact that come with those roles. At the same time, many of the challenges
+                we address — such as trauma, burnout, relationship strain, and life transitions — are not
+                unique to one profession.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you take insurance?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Tough Cookie Counseling is currently in the process of becoming in-network with select
+                insurance providers. At this time, we do not bill insurance directly.
+              </p>
+              <p>
+                Upon request, we are happy to provide a monthly superbill for you to submit to your insurance
+                for potential reimbursement. Please note that reimbursement is not guaranteed and depends on
+                your individual plan.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you offer sliding scale options?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We believe cost should not be a barrier to care. Limited sliding scale options may be
+                available. Please inquire directly for more information.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What forms of payment do you accept?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We accept credit card and HSA card payments.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is your no-show and late cancellation policy?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Your appointment time is reserved specifically for you. We require at least 24 hours' notice for cancellations or rescheduling.</p>
+              <ul>
+                <li>Appointments canceled less than 24 hours in advance will be charged the full session fee.</li>
+                <li>Missed appointments (no-shows) will also be charged the full session fee.</li>
+                <li>Late arrival or leaving early does not reduce the session fee.</li>
+                <li>All clients are required to keep a valid credit card or HSA card on file.</li>
+              </ul>
+              <p>
+                This policy is non-negotiable, as your scheduled time is held exclusively for you and cannot
+                be offered to another client on short notice.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is therapy confidential?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. However, I am legally obligated to disclose the minimum necessary information to
+                address safety or fulfill legal requirements in the following situations:
+              </p>
+              <ul>
+                <li><strong>Duty to Warn/Protect:</strong> If a client poses an imminent danger to themselves or others, counselors must take action, which may include notifying police or the potential victim.</li>
+                <li><strong>Mandated Reporting:</strong> Suspected child, elder, or dependent adult abuse or neglect must be reported to the appropriate state authorities.</li>
+                <li><strong>Court Orders/Subpoenas:</strong> Information may be disclosed if required by a judge, a court order, or a subpoena.</li>
+                <li><strong>Legal/Regulatory Actions:</strong> Certain legal cases or regulatory investigations may compel the release of records (this would require a court order).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What if I'm in crisis?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Contact <strong>911</strong> with any and all emergencies.</p>
+            </div>
+          </div>
+
+        </div><!-- end faq-list -->
+
+        <div class="closing-box" style="margin-top: 48px;">
+          <p class="quote">
+            "If you're still unsure, you're not alone. Reaching out is the hardest part — everything after that, we figure out together."
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <section class="home-section">
-      <div class="section-grid">
-        <div class="card">
-          <h2>Grounded Care</h2>
-          <p>
-            Thoughtful, practical support for people who want therapy to feel honest,
-            useful, and emotionally safe.
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>Clinical Experience</h2>
-          <p>
-            Services shaped by leadership, behavioral health expertise, and a deep
-            respect for the realities clients and families are carrying.
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>Flexible Support</h2>
-          <p>
-            Telehealth services are available for clients in Ohio and Kentucky, making
-            care more accessible without sacrificing connection or confidentiality.
-          </p>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer>
-    &copy; 2026 Tough Cookie Counseling. All rights reserved.
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-scheduling">Currently Scheduling clients in Ohio and Kentucky</div>
+        <a class="footer-logo-wrap" href="index.html">
+          <img src="assets/images/Cookie Logo Only.png" class="footer-logo-img" alt="Tough Cookie Counseling logo" />
+          <span class="footer-logo-text">Tough Cookie Counseling</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:15133278319">📞 (513) 327-8319</a>
+        <a href="mailto:toughcookiecounseling@gmail.com">✉️ toughcookiecounseling@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="services.html">Services</a>
+        <a href="specialties.html">Specialties</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div><a href="NOTICEOFPRIVACYPRACTICES.docx" target="_blank">Privacy Policy</a></div>
+      <div>© 2026 Tough Cookie Counseling</div>
+    </div>
   </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/faq.js"></script>
 </body>
 </html>
+

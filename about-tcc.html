@@ -1,492 +1,182 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tough Cookie Counseling</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      color: #f5efe6;
-      background: linear-gradient(90deg, #022f2f 0%, #0a5c50 32%, #023f39 68%, #0f6b5b 100%);
-      line-height: 1.7;
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.28);
-      border-bottom: 1px solid rgba(245, 239, 230, 0.12);
-      padding: 14px 18px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(4px);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #f5efe6;
-    }
-
-    .brand img {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .brand-title {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links a {
-      color: #f5efe6;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #eadcc8;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      min-width: 215px;
-      background: #0c3b37;
-      border: 1px solid rgba(245, 239, 230, 0.12);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-      z-index: 999;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px 14px;
-      font-size: 0.92rem;
-      white-space: nowrap;
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .hero {
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 20px 40px;
-    }
-
-    .hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 5.2rem;
-      line-height: 1.12;
-      letter-spacing: 7px;
-      margin: 0 0 18px;
-      font-weight: 400;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
-      margin-bottom: 12px;
-      color: #f0dfc7;
-      letter-spacing: 0.5px;
-    }
-
-    .hero p {
-      font-size: 1.02rem;
-      margin: 8px 0;
-    }
-
-    .content {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid rgba(245, 239, 230, 0.18);
-      margin: 0 auto 48px;
-    }
-
-    .info-section {
-      max-width: 960px;
-      margin: 0 auto 56px;
-    }
-
-    .info-section h2 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      margin: 0 0 18px;
-      color: #f5efe6;
-    }
-
-    .info-section p {
-      font-size: 1.08rem;
-      margin: 0 0 18px;
-      color: #f5efe6;
-    }
-
-    footer {
-      background: rgba(0, 38, 36, 0.72);
-      border-top: 1px solid rgba(245, 239, 230, 0.12);
-      padding: 28px 22px 18px;
-    }
-
-    .footer-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
-      align-items: end;
-    }
-
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .scheduling {
-      font-size: 0.98rem;
-      color: #f0dfc7;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #f5efe6;
-    }
-
-    .footer-logo img {
-      width: 48px;
-      height: 48px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .footer-logo-text {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .footer-right {
-      text-align: right;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-
-    .contact-line {
-      font-size: 1rem;
-      color: #f5efe6;
-    }
-
-    .contact-line a,
-    .footer-bottom a {
-      color: #f5efe6;
-      text-decoration: none;
-    }
-
-    .contact-line a:hover,
-    .footer-bottom a:hover {
-      color: #eadcc8;
-    }
-
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 18px auto 0;
-      padding-top: 14px;
-      border-top: 1px solid rgba(245, 239, 230, 0.12);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 3.6rem;
-        letter-spacing: 4px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-right {
-        text-align: left;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding: 14px 14px;
-      }
-
-      nav {
-        align-items: flex-start;
-      }
-
-      .brand-title {
-        font-size: 0.9rem;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .dropdown-content {
-        right: auto;
-        left: 0;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 60px 18px 36px;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-
-      .info-section h2 {
-        font-size: 1.7rem;
-      }
-
-      .info-section p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <meta name="description" content="Learn about Tough Cookie Counseling — our mission, values, and goals for supporting first responders and families in Ohio and Kentucky." />
+  <title>About Tough Cookie Counseling</title>
+  <link rel="icon" type="image/png" href="assets/images/fav.png" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="brand" href="index.html">
-        <img src="Cookie%20Logo%20Only.png" alt="Tough Cookie Counseling logo">
-        <span class="brand-title">Tough Cookie Counseling</span>
-      </a>
 
-      <ul class="nav-links">
-        <li class="dropdown">
-          <a href="#">About</a>
-          <div class="dropdown-content">
-            <a href="about-tcc.html">About TCC</a>
-            <a href="samantha-battrell.html">Samantha Battrell</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Services</a>
-          <div class="dropdown-content">
-            <a href="services.html">Services Overview</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Professional</a>
-          <div class="dropdown-content">
-            <a href="professional.html">Professional</a>
-            
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Specialties</a>
-          <div class="dropdown-content">
-            <a href="specialties.html">Specialties</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">FAQs</a>
-          <div class="dropdown-content">
-            <a href="faq.html">Frequently Asked Questions</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Contact</a>
-          <div class="dropdown-content">
-            <a href="contact.html">Contact</a>
-          </div>
-        </li>
-      </ul>
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/images/Cookie Logo Only.png" class="navbar-logo" alt="Tough Cookie Counseling logo" />
+      <span class="logo-text">Tough Cookie Counseling</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <div class="dropdown">
+        <button class="dropbtn">About</button>
+        <div class="dropdown-content">
+          <a href="about-tcc.html">About Tough Cookie Counseling</a>
+          <a href="samantha-battrell.html">Samantha Battrell</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+          <a href="services.html">Clinical Services</a>
+          <a href="services.html#peer-support">Peer Support</a>
+          <a href="services.html#consulting">Consulting</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Professional</button>
+        <div class="dropdown-content">
+          <a href="professional.html#supervision">Clinical Supervision</a>
+          <a href="professional.html#internships">Internships</a>
+          <a href="professional.html#work-with-us">Work With Us</a>
+          <a href="professional.html#ceu">CEU Development &amp; Training</a>
+        </div>
+      </div>
+      <a href="specialties.html">Specialties</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-inner">
-
+  <!-- ── Hero Mini ──────────────────────────────────────── -->
   <section class="hero-mini">
     <h1>About Tough Cookie Counseling</h1>
     <p>
-      Tough Cookie Counseling was built to offer grounded, thoughtful care for the people who carry stress, responsibility, and emotional weight with little room to set any of it down.
+      Built to offer grounded, thoughtful care for the people who carry stress, responsibility,
+      and emotional weight with little room to set any of it down.
     </p>
   </section>
 
+  <!-- ── Main Content ───────────────────────────────────── -->
   <main class="page-content">
+
+    <!-- Mission -->
     <section class="section">
       <div class="section-content">
         <h2>Mission</h2>
-        <p>
-          At Tough Cookie Counseling, our mission is to provide grounded, effective mental health care to first responders, their loved ones, and the broader community.
-        </p>
-        <p>
-          We are committed to creating a space where resilience is respected, complexity is understood, and support feels both steady and real.
+        <p class="section-intro">
+          At Tough Cookie Counseling, our mission is to provide grounded, effective mental health care
+          to first responders, their loved ones, and the broader community. We are committed to creating
+          a space where resilience is honored, challenges are met with skill and compassion, and individuals
+          and families are supported in building lasting strength, connection, and well-being.
         </p>
       </div>
     </section>
 
+    <!-- Values -->
     <section class="section">
       <div class="section-content">
         <h2>Values</h2>
-
         <div class="values-grid">
           <div class="value-card">
             <h3>Respect for the Role</h3>
-            <p>
-              We honor the responsibility, sacrifice, and complexity that come with serving others, and we approach that work with humility and understanding.
-            </p>
+            <p>We honor the responsibility, sacrifice, and complexity that comes with serving others, and we approach that work with humility and understanding.</p>
           </div>
-
           <div class="value-card">
             <h3>Real-World Understanding</h3>
-            <p>
-              Our care is shaped by lived experience and clinical expertise. We value authenticity and meet people where they are, without judgment or assumption.
-            </p>
+            <p>Our care is shaped by lived experience and clinical expertise. We value authenticity and meet people where they are, without judgment or assumption.</p>
           </div>
-
           <div class="value-card">
             <h3>Integrity in Practice</h3>
-            <p>
-              We hold ourselves to strong clinical and ethical standards, ensuring that the care we provide is thoughtful, evidence-based, and accountable.
-            </p>
+            <p>We hold ourselves to strong clinical and ethical standards, ensuring that the care we provide is thoughtful, evidence-based, and accountable.</p>
           </div>
-
           <div class="value-card">
-            <h3>Steady Support</h3>
-            <p>
-              Healing is not about performance. We believe in care that is consistent, human, and responsive to the realities people are living through every day.
-            </p>
+            <h3>Connection Matters</h3>
+            <p>We believe healing happens in relationships. We prioritize strengthening individuals, couples, and families as interconnected systems.</p>
+          </div>
+          <div class="value-card">
+            <h3>Resilience with Support</h3>
+            <p>Strength is not about enduring alone. We value the balance between resilience and reaching for help when it is needed.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Goals -->
     <section class="section">
       <div class="section-content">
-        <h2>Who We Serve</h2>
-        <p>
-          Our work centers on first responders, the people who love and support them, and individuals or families looking for care that feels grounded rather than generic.
-        </p>
-        <p>
-          Whether someone is navigating stress, trauma, relationship strain, identity shifts, or the emotional wear of carrying too much for too long, we aim to provide a space where they can exhale and begin to heal.
-        </p>
+        <h2>Goals</h2>
+        <div class="goals-grid">
+          <div class="goal-card">
+            <h3>Provide Specialized Care</h3>
+            <p>Deliver therapy that is tailored to the unique experiences of first responders, their partners, and families, while remaining accessible to the broader community.</p>
+          </div>
+          <div class="goal-card">
+            <h3>Strengthen Families and Relationships</h3>
+            <p>Support couples and families in improving communication, rebuilding trust, and navigating the impact of high-stress professions.</p>
+          </div>
+          <div class="goal-card">
+            <h3>Expand Access to Care</h3>
+            <p>Increase availability of services through telehealth, flexible scheduling, and scalable offerings that meet people where they are.</p>
+          </div>
+          <div class="goal-card">
+            <h3>Build Community Trust</h3>
+            <p>Establish Tough Cookie Counseling as a trusted resource within the first responder community and beyond.</p>
+          </div>
+          <div class="goal-card">
+            <h3>Develop Sustainable Support Systems</h3>
+            <p>Equip clients with practical tools, insight, and strategies that promote long-term stability, growth, and well-being.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-content">
-        <h2>Our Approach</h2>
-        <p>
-          We believe meaningful care should be clinically sound, relationally grounded, and shaped by the realities of the person sitting in the room.
-        </p>
-        <p>
-          That means no posturing, no empty wellness language, and no one-size-fits-all treatment. We focus on support that is honest, effective, and built to help people function, process, and reconnect.
-        </p>
-      </div>
-    </section>
 
     <section class="section">
       <div class="section-content">
         <div class="closing-box">
           <p>
-            Tough Cookie Counseling exists to make room for the people who are used to being strong for everyone else. Our goal is to offer care that is capable, respectful, and deeply human.
+            Tough Cookie Counseling exists to make room for the people who are used to being strong for everyone else.
+            Our goal is to offer care that is capable, respectful, and deeply human.
           </p>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer>
-    <div class="footer-left">
-      <p>Currently Scheduling clients in Ohio and Kentucky</p>
-      <img src="TCC Title Logo.png" class="footer-logo" alt="Tough Cookie Counseling logo">
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-scheduling">Currently Scheduling clients in Ohio and Kentucky</div>
+        <a class="footer-logo-wrap" href="index.html">
+          <img src="assets/images/Cookie Logo Only.png" class="footer-logo-img" alt="Tough Cookie Counseling logo" />
+          <span class="footer-logo-text">Tough Cookie Counseling</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:15133278319">📞 (513) 327-8319</a>
+        <a href="mailto:toughcookiecounseling@gmail.com">✉️ toughcookiecounseling@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="services.html">Services</a>
+        <a href="specialties.html">Specialties</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-
-    <div class="footer-center">
-      <p>📞 (513) 327-8319</p>
-      <p>✉️ toughcookiecounseling@gmail.com</p>
-    </div>
-
-    <div class="footer-right">
-      <a href="#">Privacy Policy</a>
-      <p>2026 Tough Cookie Counseling</p>
+    <div class="footer-bottom">
+      <div><a href="NOTICEOFPRIVACYPRACTICES.docx" target="_blank">Privacy Policy</a></div>
+      <div>© 2026 Tough Cookie Counseling</div>
     </div>
   </footer>
+
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>
+

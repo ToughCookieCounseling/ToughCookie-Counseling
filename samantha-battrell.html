@@ -1,493 +1,167 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tough Cookie Counseling</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      color: #f5efe6;
-      background: linear-gradient(90deg, #022f2f 0%, #0a5c50 32%, #023f39 68%, #0f6b5b 100%);
-      line-height: 1.7;
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.28);
-      border-bottom: 1px solid rgba(245, 239, 230, 0.12);
-      padding: 14px 18px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(4px);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #f5efe6;
-    }
-
-    .brand img {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .brand-title {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links a {
-      color: #f5efe6;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #eadcc8;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      min-width: 215px;
-      background: #0c3b37;
-      border: 1px solid rgba(245, 239, 230, 0.12);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-      z-index: 999;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px 14px;
-      font-size: 0.92rem;
-      white-space: nowrap;
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .hero {
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 20px 40px;
-    }
-
-    .hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 5.2rem;
-      line-height: 1.12;
-      letter-spacing: 7px;
-      margin: 0 0 18px;
-      font-weight: 400;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
-      margin-bottom: 12px;
-      color: #f0dfc7;
-      letter-spacing: 0.5px;
-    }
-
-    .hero p {
-      font-size: 1.02rem;
-      margin: 8px 0;
-    }
-
-    .content {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid rgba(245, 239, 230, 0.18);
-      margin: 0 auto 48px;
-    }
-
-    .info-section {
-      max-width: 960px;
-      margin: 0 auto 56px;
-    }
-
-    .info-section h2 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      margin: 0 0 18px;
-      color: #f5efe6;
-    }
-
-    .info-section p {
-      font-size: 1.08rem;
-      margin: 0 0 18px;
-      color: #f5efe6;
-    }
-
-    footer {
-      background: rgba(0, 38, 36, 0.72);
-      border-top: 1px solid rgba(245, 239, 230, 0.12);
-      padding: 28px 22px 18px;
-    }
-
-    .footer-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
-      align-items: end;
-    }
-
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .scheduling {
-      font-size: 0.98rem;
-      color: #f0dfc7;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #f5efe6;
-    }
-
-    .footer-logo img {
-      width: 48px;
-      height: 48px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .footer-logo-text {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .footer-right {
-      text-align: right;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-
-    .contact-line {
-      font-size: 1rem;
-      color: #f5efe6;
-    }
-
-    .contact-line a,
-    .footer-bottom a {
-      color: #f5efe6;
-      text-decoration: none;
-    }
-
-    .contact-line a:hover,
-    .footer-bottom a:hover {
-      color: #eadcc8;
-    }
-
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 18px auto 0;
-      padding-top: 14px;
-      border-top: 1px solid rgba(245, 239, 230, 0.12);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 3.6rem;
-        letter-spacing: 4px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-right {
-        text-align: left;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding: 14px 14px;
-      }
-
-      nav {
-        align-items: flex-start;
-      }
-
-      .brand-title {
-        font-size: 0.9rem;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .dropdown-content {
-        right: auto;
-        left: 0;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 60px 18px 36px;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-
-      .info-section h2 {
-        font-size: 1.7rem;
-      }
-
-      .info-section p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <meta name="description" content="Meet Samantha Battrell, LPCC-S, LICDC, LPCA — founder of Tough Cookie Counseling and specialist in first responder mental health in Ohio and Kentucky." />
+  <title>Samantha Battrell | Tough Cookie Counseling</title>
+  <link rel="icon" type="image/png" href="assets/images/fav.png" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="brand" href="index.html">
-        <img src="Cookie%20Logo%20Only.png" alt="Tough Cookie Counseling logo">
-        <span class="brand-title">Tough Cookie Counseling</span>
-      </a>
 
-      <ul class="nav-links">
-        <li class="dropdown">
-          <a href="#">About</a>
-          <div class="dropdown-content">
-            <a href="about-tcc.html">About TCC</a>
-            <a href="samantha-battrell.html">Samantha Battrell</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Services</a>
-          <div class="dropdown-content">
-            <a href="services.html">Services Overview</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Professional</a>
-          <div class="dropdown-content">
-            <a href="professional.html">Professional</a>
-            
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Specialties</a>
-          <div class="dropdown-content">
-            <a href="specialties.html">Specialties</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">FAQs</a>
-          <div class="dropdown-content">
-            <a href="faq.html">Frequently Asked Questions</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Contact</a>
-          <div class="dropdown-content">
-            <a href="contact.html">Contact</a>
-          </div>
-        </li>
-      </ul>
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="assets/images/Cookie Logo Only.png" class="navbar-logo" alt="Tough Cookie Counseling logo" />
+      <span class="logo-text">Tough Cookie Counseling</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <div class="dropdown">
+        <button class="dropbtn">About</button>
+        <div class="dropdown-content">
+          <a href="about-tcc.html">About Tough Cookie Counseling</a>
+          <a href="samantha-battrell.html">Samantha Battrell</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+          <a href="services.html">Clinical Services</a>
+          <a href="services.html#peer-support">Peer Support</a>
+          <a href="services.html#consulting">Consulting</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Professional</button>
+        <div class="dropdown-content">
+          <a href="professional.html#supervision">Clinical Supervision</a>
+          <a href="professional.html#internships">Internships</a>
+          <a href="professional.html#work-with-us">Work With Us</a>
+          <a href="professional.html#ceu">CEU Development &amp; Training</a>
+        </div>
+      </div>
+      <a href="specialties.html">Specialties</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-inner">
-<body>
-  <header>
-    <nav>
-      <a class="logo" href="index.html">Tough Cookie Counseling</a>
-      <ul class="nav-links">
-        <li class="dropdown">
-  <a href="#">About</a>
-  <div class="dropdown-content">
-    <a href="about-tcc.html">About TCC</a>
-    <a href="samantha-battrell.html">Samantha Battrell</a>
+  <!-- ── Bio Hero ───────────────────────────────────────── -->
+  <div class="bio-hero">
+    <img src="assets/images/Samantha.png" class="bio-photo" alt="Samantha Battrell, LPCC-S" />
+    <div class="bio-text">
+      <h1>Samantha Battrell</h1>
+      <div class="bio-credentials">LPCC-S &nbsp;|&nbsp; LICDC &nbsp;|&nbsp; LPCA</div>
+      <p class="bio-tagline">
+        Clinical leadership rooted in real-world experience and deeply human care.
+      </p>
+      <p>
+        Samantha Battrell is the founder of Tough Cookie Counseling and a clinician known for her direct,
+        thoughtful, and deeply grounded approach to care. She brings a blend of clinical expertise,
+        operational leadership, and real-world understanding to her work with individuals, couples, and families.
+      </p>
+      <ul class="credentials-list">
+        <li>LPCC-S (Ohio) — Licensed Professional Clinical Counselor with Supervision designation</li>
+        <li>LICDC (Ohio) — Licensed Independent Chemical Dependency Counselor</li>
+        <li>LPCA (Kentucky) — Licensed Professional Counselor Associate</li>
+      </ul>
+    </div>
   </div>
-</li>
-        <li class="dropdown">
-          <a href="services.html">Services</a>
-          <div class="dropdown-content">
-            <a href="services.html">Services Overview</a>
-            <a href="specialties.html">Specialties</a>
-          </div>
-        </li>
-      
-        <li><a href="specialties.html">Specialties</a></li>
-        <li><a href="faq.html">FAQs</a></li>
-        <li><a href="Contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="about-container">
-        <img src="Samantha.png" alt="Samantha Battrell" class="profile-pic" />
+  <!-- ── Main Content ───────────────────────────────────── -->
+  <main class="page-content">
 
-        <div class="hero-text">
-          <h1>SAMANTHA BATTRELL</h1>
-          <div class="credentials">LPCC-S | LICDC</div>
-          <div class="power-line">Clinical leadership rooted in real-world experience and deeply human care.</div>
+    <section class="section">
+      <div class="section-content">
+        <h2>Background</h2>
+        <div class="detail-band">
           <p>
-            Samantha Battrell brings a grounded, direct, and compassionate approach to therapy,
-            shaped by both clinical experience and a deep respect for the realities people are
-            navigating every day.
+            Her professional background spans behavioral health leadership, program development, compliance,
+            and direct clinical care across a range of settings. She has worked extensively with individuals
+            navigating trauma, substance use, family system challenges, and the unique pressures tied to
+            high-responsibility roles.
           </p>
           <p>
-            Her work is especially informed by the emotional weight carried by first responders,
-            families, and individuals who have spent a long time holding everything together.
+            Samantha has a strong connection to the first responder community, both professionally and
+            personally. That perspective shapes her ability to engage with clients in a way that is both
+            clinically sound and genuinely relevant to their lived experience.
           </p>
         </div>
       </div>
     </section>
 
-    <div class="content">
-      <section>
-        <h2>APPROACH</h2>
-        <div class="section-text">
-          <p>
-            Samantha’s style is thoughtful, practical, and deeply human. She believes therapy
-            should be a place where people can be honest without having to translate themselves,
-            soften their experience, or perform healing in a polished way.
-          </p>
-          <p>
-            Her work is rooted in respect, real-world understanding, and the belief that meaningful
-            care must be both clinically sound and emotionally attuned.
-          </p>
-        </div>
-      </section>
-
-      <hr>
-
-      <section>
-        <h2>FOCUS AREAS</h2>
-        <div class="focus-grid">
-          <div class="focus-card">
-            <h3>FIRST RESPONDERS</h3>
+    <section class="section">
+      <div class="section-content">
+        <h2>Approach</h2>
+        <p class="section-intro">
+          Samantha's style is clear, collaborative, and focused on meaningful progress. She creates a space
+          where clients can be honest, challenged, and supported — without pretense or unnecessary complexity.
+        </p>
+        <div class="two-column">
+          <div class="focus-box">
+            <h3>Direct &amp; Practical</h3>
             <p>
-              Support for those who carry chronic stress, trauma exposure, hypervigilance,
-              and the quiet strain that often comes with service.
+              She believes therapy should be a place where people can be honest without having to translate
+              themselves, soften their experience, or perform healing in a polished way.
             </p>
           </div>
-
-          <div class="focus-card">
-            <h3>FAMILIES &amp; PARTNERS</h3>
+          <div class="focus-box">
+            <h3>Clinically Grounded</h3>
             <p>
-              Space for the people who love someone in a demanding role and need support,
-              clarity, and steadiness of their own.
-            </p>
-          </div>
-
-          <div class="focus-card">
-            <h3>TRAUMA &amp; RESILIENCE</h3>
-            <p>
-              Care that honors survival while helping clients move toward safety,
-              self-understanding, and sustainable healing.
-            </p>
-          </div>
-
-          <div class="focus-card">
-            <h3>LIFE TRANSITIONS</h3>
-            <p>
-              Guidance through identity shifts, burnout, relationship strain, and seasons
-              where holding it all together no longer works.
+              Her work is rooted in respect, real-world understanding, and the belief that meaningful care
+              must be both clinically sound and emotionally attuned.
             </p>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="section-content">
+        <div class="closing-box">
+          <p>At the core of her work is a simple belief: people are capable of far more than they have been given the space or support to realize.</p>
+          <p>She is especially committed to supporting the unseen weight carried by first responders and the loved ones who stand beside them.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    &copy; 2026 Tough Cookie Counseling. All rights reserved.
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-scheduling">Currently Scheduling clients in Ohio and Kentucky</div>
+        <a class="footer-logo-wrap" href="index.html">
+          <img src="assets/images/Cookie Logo Only.png" class="footer-logo-img" alt="Tough Cookie Counseling logo" />
+          <span class="footer-logo-text">Tough Cookie Counseling</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:15133278319">📞 (513) 327-8319</a>
+        <a href="mailto:toughcookiecounseling@gmail.com">✉️ toughcookiecounseling@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="services.html">Services</a>
+        <a href="specialties.html">Specialties</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div><a href="NOTICEOFPRIVACYPRACTICES.docx" target="_blank">Privacy Policy</a></div>
+      <div>© 2026 Tough Cookie Counseling</div>
+    </div>
   </footer>
+
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>
+

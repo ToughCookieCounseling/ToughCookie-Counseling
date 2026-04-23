@@ -1,522 +1,183 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Specialty areas at Tough Cookie Counseling — first responders, trauma, burnout, families, and more in Ohio and Kentucky." />
   <title>Specialties | Tough Cookie Counseling</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at 70% 65%, rgba(9, 53, 43, 0.75) 0%, rgba(9, 53, 43, 0) 28%),
-        radial-gradient(circle at 30% 25%, rgba(0, 80, 60, 0.35) 0%, rgba(0, 80, 60, 0) 22%),
-        linear-gradient(115deg, #021f1a 0%, #06352d 32%, #0b5a4b 58%, #03241e 100%);
-      color: white;
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(3, 36, 30, 0.95);
-      padding: 12px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(245, 241, 234, 0.12);
-    }
-
-    .logo {
-      height: 40px;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-text {
-      color: #f5f1ea;
-      font-size: 1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.95;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .navbar a,
-    .dropbtn {
-      color: #f5f1ea;
-      text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-    }
-
-    .navbar a:hover,
-    .dropbtn:hover {
-      color: #d8cfc2;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: rgba(3, 36, 30, 0.98);
-      min-width: 240px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
-      z-index: 1001;
-      border: 1px solid rgba(245, 241, 234, 0.1);
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px 16px;
-      color: #f5f1ea;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(245, 241, 234, 0.08);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .hero-mini {
-      text-align: center;
-      padding: 90px 20px 50px;
-    }
-
-    .hero-mini h1 {
-      margin: 0 0 18px 0;
-      font-size: 3.3rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #f5f1ea;
-    }
-
-    .hero-mini p {
-      max-width: 920px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.85;
-      color: #e8e2d9;
-    }
-
-    .page-content {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 10px 20px 100px;
-    }
-
-    .section {
-      padding: 44px 0 72px;
-      position: relative;
-    }
-
-    .section::after {
-      content: "";
-      display: block;
-      width: 60%;
-      height: 1px;
-      margin: 70px auto 0;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(245, 241, 234, 0.3),
-        transparent
-      );
-    }
-
-    .section:last-of-type::after {
-      display: none;
-    }
-
-    .section-content {
-      max-width: 1020px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin: 0 0 24px;
-      color: #f5f1ea;
-      text-align: center;
-    }
-
-    .section-intro {
-      max-width: 860px;
-      margin: 0 auto 34px;
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: #e8e2d9;
-      text-align: center;
-    }
-
-    .specialty-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 28px;
-    }
-
-    .specialty-card {
-      background: rgba(3, 36, 30, 0.42);
-      border: 1px solid rgba(245, 241, 234, 0.1);
-      padding: 28px 24px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-      min-height: 260px;
-    }
-
-    .specialty-card h3 {
-      margin: 0 0 14px 0;
-      font-size: 1.15rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #f5f1ea;
-    }
-
-    .specialty-card p {
-      margin: 0 0 14px 0;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #e8e2d9;
-    }
-
-    .detail-band {
-      background: rgba(3, 36, 30, 0.38);
-      border: 1px solid rgba(245, 241, 234, 0.1);
-      padding: 34px 30px;
-      margin-top: 28px;
-    }
-
-    .detail-band h3 {
-      margin: 0 0 16px 0;
-      font-size: 1.35rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #f5f1ea;
-    }
-
-    .detail-band p {
-      margin: 0 0 16px 0;
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: #e8e2d9;
-    }
-
-    .detail-band p:last-child {
-      margin-bottom: 0;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      margin-top: 28px;
-    }
-
-    .focus-box {
-      background: rgba(3, 36, 30, 0.42);
-      border: 1px solid rgba(245, 241, 234, 0.1);
-      padding: 26px 22px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-    }
-
-    .focus-box h3 {
-      margin: 0 0 12px 0;
-      font-size: 1.1rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #f5f1ea;
-    }
-
-    .focus-box p {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #e8e2d9;
-    }
-
-    .closing-box {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 32px 28px;
-      text-align: center;
-      background: rgba(3, 36, 30, 0.45);
-      border: 1px solid rgba(245, 241, 234, 0.12);
-    }
-
-    .closing-box p {
-      margin: 0;
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: #e8e2d9;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
-      flex-wrap: wrap;
-      padding: 30px 20px;
-      background: rgba(3, 36, 30, 0.9);
-      color: white;
-      border-top: 1px solid rgba(245, 241, 234, 0.12);
-    }
-
-    .footer-left,
-    .footer-center,
-    .footer-right {
-      flex: 1 1 220px;
-    }
-
-    .footer-logo {
-      width: 140px;
-      margin-top: 10px;
-    }
-
-    footer p,
-    footer a {
-      color: #f5f1ea;
-      font-size: 1rem;
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    footer a {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 900px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .nav-menu {
-        gap: 16px;
-      }
-
-      .hero-mini h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-mini p,
-      .section-intro,
-      .detail-band p,
-      .closing-box p {
-        font-size: 1.05rem;
-      }
-
-      .two-column {
-        grid-template-columns: 1fr;
-      }
-
-      .detail-band {
-        padding: 28px 22px;
-      }
-    }
-  </style>
+  <link rel="icon" type="image/png" href="assets/images/fav.png" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
   <header class="navbar">
     <a href="index.html" class="logo-wrap">
-      <img src="Cookie Logo Only.png" class="logo" alt="Tough Cookie Counseling Home">
+      <img src="assets/images/Cookie Logo Only.png" class="navbar-logo" alt="Tough Cookie Counseling logo" />
       <span class="logo-text">Tough Cookie Counseling</span>
     </a>
-
-    <nav class="nav-menu">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
       <div class="dropdown">
-        <div class="dropbtn">About</div>
+        <button class="dropbtn">About</button>
         <div class="dropdown-content">
           <a href="about-tcc.html">About Tough Cookie Counseling</a>
           <a href="samantha-battrell.html">Samantha Battrell</a>
         </div>
       </div>
-
       <div class="dropdown">
-        <div class="dropbtn">Services</div>
+        <button class="dropbtn">Services</button>
         <div class="dropdown-content">
           <a href="services.html">Clinical Services</a>
           <a href="services.html#peer-support">Peer Support</a>
           <a href="services.html#consulting">Consulting</a>
         </div>
       </div>
-
       <div class="dropdown">
-        <div class="dropbtn">Professional</div>
+        <button class="dropbtn">Professional</button>
         <div class="dropdown-content">
           <a href="professional.html#supervision">Clinical Supervision</a>
           <a href="professional.html#internships">Internships</a>
           <a href="professional.html#work-with-us">Work With Us</a>
-          <a href="professional.html#ceu">CEU Development & Training</a>
+          <a href="professional.html#ceu">CEU Development &amp; Training</a>
         </div>
       </div>
-
       <a href="specialties.html">Specialties</a>
       <a href="faq.html">FAQs</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
+  <!-- ── Hero Mini ──────────────────────────────────────── -->
   <section class="hero-mini">
     <h1>Specialties</h1>
     <p>
-      Tough Cookie Counseling is especially attuned to the needs of people carrying high levels of pressure, responsibility, and emotional weight. Our specialties reflect the populations and experiences we are most equipped to support with depth and understanding.
+      Tough Cookie Counseling offers support grounded in real-world understanding, clinical experience,
+      and a strong connection to the unique pressures faced by first responders, their loved ones,
+      and individuals navigating high-stress environments.
     </p>
   </section>
 
+  <!-- ── Main Content ───────────────────────────────────── -->
   <main class="page-content">
+
     <section class="section">
       <div class="section-content">
-        <h2>Core Specialty Areas</h2>
-        <p class="section-intro">
-          Our work centers on supporting people whose lives are shaped by stress, service, relational strain, and the long-term impact of carrying more than most.
-        </p>
-
+        <h2>Specialty Areas</h2>
         <div class="specialty-grid">
-          <div class="specialty-card">
-            <h3>First Responders</h3>
-            <p>
-              Therapy for those working in roles defined by responsibility, urgency, trauma exposure, and constant readiness.
-            </p>
-            <p>
-              This includes support for burnout, hypervigilance, identity strain, emotional exhaustion, and the long-term impact of serving under pressure.
-            </p>
+
+          <div class="specialty-card" id="first-responder">
+            <h3>First Responder</h3>
+            <p>Focused support addressing the unique demands, identity, and pressures of first responder work, both on and off duty.</p>
           </div>
 
-          <div class="specialty-card">
-            <h3>Families of First Responders</h3>
-            <p>
-              Care for spouses, partners, children, and loved ones whose lives are shaped by the emotional, practical, and relational demands of first responder work.
-            </p>
-            <p>
-              This work acknowledges the quieter weight that families often carry.
-            </p>
+          <div class="specialty-card" id="first-responder-family">
+            <h3>First Responder Couple / Family</h3>
+            <p>Guidance for couples and families navigating the impact of shift work, exposure to trauma, and the culture of service.</p>
           </div>
 
-          <div class="specialty-card">
-            <h3>Trauma & Chronic Stress</h3>
-            <p>
-              Support for those living with the effects of repeated stress, unresolved experiences, grief, or the emotional accumulation that happens when there has never been enough time to process.
-            </p>
+          <div class="specialty-card" id="trauma">
+            <h3>Trauma</h3>
+            <p>Understanding and processing trauma related to critical incidents, cumulative stress, and long-term exposure in high-risk roles.</p>
           </div>
 
-          <div class="specialty-card">
-            <h3>Relationship Strain</h3>
-            <p>
-              Therapy for couples and families navigating communication breakdown, disconnection, role imbalance, emotional distance, or the pressure that demanding work places on relationships.
-            </p>
+          <div class="specialty-card" id="burnout">
+            <h3>Burnout</h3>
+            <p>Identifying and addressing emotional exhaustion, detachment, and reduced capacity often experienced in service-based professions.</p>
           </div>
 
-          <div class="specialty-card">
-            <h3>Emotional Overload</h3>
-            <p>
-              Care for people who are functioning on the outside but feel internally stretched thin, overwhelmed, numb, reactive, or exhausted from carrying too much for too long.
-            </p>
+          <div class="specialty-card" id="diversity">
+            <h3>Cultural Diversity &amp; Adversity</h3>
+            <p>Exploring how diverse backgrounds and lived experiences intersect with first responder culture and workplace challenges.</p>
           </div>
 
-          <div class="specialty-card">
-            <h3>Life Transitions & Identity Shifts</h3>
-            <p>
-              Support for periods of change that challenge a person’s sense of self, stability, relationships, or direction, especially when old coping strategies no longer fit.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-content">
-        <h2>What Makes This Work Different</h2>
-
-        <div class="detail-band">
-          <h3>More Than a Generic Therapy Model</h3>
-          <p>
-            These specialty areas are not simply topics of interest. They reflect populations and experiences that require nuance, respect, and an understanding of how stress, service, trauma, and family systems actually intersect in real life.
-          </p>
-          <p>
-            Our aim is to offer care that feels informed, emotionally intelligent, and grounded in the lived realities of the people we serve.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-content">
-        <h2>Common Themes We Help With</h2>
-
-        <div class="two-column">
-          <div class="focus-box">
-            <h3>Stress & Burnout</h3>
-            <p>
-              Chronic tension, pressure, irritability, emotional depletion, and the feeling of always being “on.”
-            </p>
+          <div class="specialty-card" id="advanced-peer-support">
+            <h3>Advanced Peer Support</h3>
+            <p>Training and skill-building for peer supporters to effectively assist colleagues in high-stress, high-stakes environments.</p>
           </div>
 
-          <div class="focus-box">
-            <h3>Trauma Responses</h3>
-            <p>
-              Hypervigilance, avoidance, numbness, intrusive memories, disrupted sleep, and difficulty feeling settled or safe.
-            </p>
+          <div class="specialty-card" id="substance-awareness">
+            <h3>Alcohol and Drug Awareness</h3>
+            <p>Addressing substance use risks and patterns within first responder culture, with a focus on prevention and recovery.</p>
           </div>
 
-          <div class="focus-box">
-            <h3>Communication & Disconnection</h3>
-            <p>
-              The relational strain that happens when stress, work demands, and emotional fatigue begin to erode connection.
-            </p>
+          <div class="specialty-card" id="anger-management">
+            <h3>Anger Management</h3>
+            <p>Tools to understand, manage, and redirect anger that can develop from chronic stress and high-pressure situations.</p>
           </div>
 
-          <div class="focus-box">
-            <h3>Grief & Accumulated Loss</h3>
-            <p>
-              Support for visible and invisible losses, including identity changes, role shifts, strained relationships, and the emotional cost of repeated exposure to hardship.
-            </p>
+          <div class="specialty-card" id="workplace-bullying">
+            <h3>Bullying in the Workplace</h3>
+            <p>Recognizing and addressing workplace dynamics that impact morale, safety, and team cohesion within departments.</p>
           </div>
 
-          <div class="focus-box">
-            <h3>Overfunctioning</h3>
-            <p>
-              The burden of being the strong one, the capable one, or the person others rely on while your own needs stay pushed aside.
-            </p>
+          <div class="specialty-card" id="compassion-fatigue">
+            <h3>Compassion Fatigue</h3>
+            <p>Understanding the emotional toll of helping others in crisis and strategies to maintain empathy without depletion.</p>
           </div>
 
-          <div class="focus-box">
-            <h3>Adjustment & Transition</h3>
-            <p>
-              Help navigating seasons that feel uncertain, disruptive, or emotionally disorienting, even when they look manageable from the outside.
-            </p>
+          <div class="specialty-card" id="divorce">
+            <h3>Divorce / Co-Parenting</h3>
+            <p>Support for navigating separation and co-parenting challenges, especially within the demands of first responder life.</p>
           </div>
+
+          <div class="specialty-card" id="spouse-family-education">
+            <h3>Education for Spouse and Family</h3>
+            <p>Helping loved ones understand the realities of first responder work and how to support their partner or family member.</p>
+          </div>
+
+          <div class="specialty-card" id="grief">
+            <h3>Grief and Bereavement</h3>
+            <p>Processing loss, both personal and professional, including line-of-duty deaths and cumulative exposure to tragedy.</p>
+          </div>
+
+          <div class="specialty-card" id="marriage">
+            <h3>Managing Your Marriage</h3>
+            <p>Strengthening relationships impacted by stress, time apart, and the emotional weight of the profession.</p>
+          </div>
+
+          <div class="specialty-card" id="mental-health">
+            <h3>Mental Health for First Responders</h3>
+            <p>Foundational education and support around common mental health challenges within the first responder population.</p>
+          </div>
+
+          <div class="specialty-card" id="mindfulness">
+            <h3>Mindfulness</h3>
+            <p>Practical techniques to improve focus, regulate stress, and stay present in high-pressure environments.</p>
+          </div>
+
+          <div class="specialty-card" id="posttraumatic-growth">
+            <h3>Posttraumatic Growth</h3>
+            <p>Exploring how individuals can find meaning, strength, and growth following traumatic experiences.</p>
+          </div>
+
+          <div class="specialty-card" id="resiliency">
+            <h3>Resiliency</h3>
+            <p>Building sustainable mental and emotional strength to adapt and perform under ongoing stress.</p>
+          </div>
+
+          <div class="specialty-card" id="retirement">
+            <h3>Retirement Expectations, Concerns, and Psychological Process</h3>
+            <p>Preparing for the transition out of service, including identity shifts, purpose, and long-term adjustment.</p>
+          </div>
+
+          <div class="specialty-card" id="sleep">
+            <h3>Shift Work and Sleep</h3>
+            <p>Addressing the impact of irregular schedules on sleep, health, and overall functioning.</p>
+          </div>
+
+          <div class="specialty-card" id="stress-management">
+            <h3>Stress Management</h3>
+            <p>Practical tools to manage daily and cumulative stress associated with high-demand roles.</p>
+          </div>
+
+          <div class="specialty-card" id="ptsd">
+            <h3>Understanding PTSD</h3>
+            <p>Education on recognizing, understanding, and addressing Posttraumatic Stress Disorder within first responder populations.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -525,183 +186,46 @@
       <div class="section-content">
         <div class="closing-box">
           <p>
-            Specialty care should feel like more than a label. It should reflect real understanding, thoughtful clinical work, and a willingness to meet people honestly in the complexity of their lives. That is the standard Tough Cookie Counseling aims to hold.
+            Specialty care should feel like more than a label. It should reflect real understanding, thoughtful
+            clinical work, and a willingness to meet people honestly in the complexity of their lives.
+            That is the standard Tough Cookie Counseling aims to hold.
           </p>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer>
-    <div class="footer-left">
-      <p>Currently Scheduling clients in Ohio and Kentucky</p>
-      <img src="TCC Title Logo.png" class="footer-logo" alt="Tough Cookie Counseling logo">
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-scheduling">Currently Scheduling clients in Ohio and Kentucky</div>
+        <a class="footer-logo-wrap" href="index.html">
+          <img src="assets/images/Cookie Logo Only.png" class="footer-logo-img" alt="Tough Cookie Counseling logo" />
+          <span class="footer-logo-text">Tough Cookie Counseling</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:15133278319">📞 (513) 327-8319</a>
+        <a href="mailto:toughcookiecounseling@gmail.com">✉️ toughcookiecounseling@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="services.html">Services</a>
+        <a href="specialties.html">Specialties</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-
-    <div class="footer-center">
-      <p>📞 (513) 327-8319</p>
-      <p>✉️ toughcookiecounseling@gmail.com</p>
-    </div>
-
-    <div class="footer-right">
-      <a href="#">Privacy Policy</a>
-      <p>2026 Tough Cookie Counseling</p>
+    <div class="footer-bottom">
+      <div><a href="NOTICEOFPRIVACYPRACTICES.docx" target="_blank">Privacy Policy</a></div>
+      <div>© 2026 Tough Cookie Counseling</div>
     </div>
   </footer>
-</body>
-</html>    .intro {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
 
-    .specialty-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .specialty-card {
-      border: 1px solid #e6e6e6;
-      border-radius: 10px;
-      padding: 24px;
-      background-color: #fafaf8;
-    }
-
-    .specialty-card h2 {
-      margin-top: 0;
-      font-size: 22px;
-      color: #6F7F6A;
-    }
-
-    .specialty-card p {
-      line-height: 1.65;
-      margin-bottom: 0;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="index.html">← Home</a>
-  </header>
-
-  <main>
-    <h1>Specialties</h1>
-    <p class="intro">
-      Tough Cookie Counseling offers support grounded in real-world understanding, clinical experience, and a strong connection to the unique pressures faced by first responders, their loved ones, and individuals navigating high-stress environments.
-    </p>
-
-    <div class="specialty-grid">
-      <div class="specialty-card" id="first-responder">
-        <h2>First Responder</h2>
-        <p>Focused support addressing the unique demands, identity, and pressures of first responder work, both on and off duty.</p>
-      </div>
-
-      <div class="specialty-card" id="first-responder-family">
-        <h2>First Responder Couple/Family</h2>
-        <p>Guidance for couples and families navigating the impact of shift work, exposure to trauma, and the culture of service.</p>
-      </div>
-
-      <div class="specialty-card" id="trauma">
-        <h2>Trauma</h2>
-        <p>Understanding and processing trauma related to critical incidents, cumulative stress, and long-term exposure in high-risk roles.</p>
-      </div>
-
-      <div class="specialty-card" id="burnout">
-        <h2>Burnout</h2>
-        <p>Identifying and addressing emotional exhaustion, detachment, and reduced capacity often experienced in service-based professions.</p>
-      </div>
-
-      <div class="specialty-card" id="diversity">
-        <h2>Cultural Diversity & Adversity</h2>
-        <p>Exploring how diverse backgrounds and lived experiences intersect with first responder culture and workplace challenges.</p>
-      </div>
-
-      <div class="specialty-card" id="advanced-peer-support">
-        <h2>Advanced Peer Support</h2>
-        <p>Training and skill-building for peer supporters to effectively assist colleagues in high-stress, high-stakes environments.</p>
-      </div>
-
-      <div class="specialty-card" id="substance-awareness">
-        <h2>Alcohol and Drug Awareness</h2>
-        <p>Addressing substance use risks and patterns within first responder culture, with a focus on prevention and recovery.</p>
-      </div>
-
-      <div class="specialty-card" id="anger-management">
-        <h2>Anger Management</h2>
-        <p>Tools to understand, manage, and redirect anger that can develop from chronic stress and high-pressure situations.</p>
-      </div>
-
-      <div class="specialty-card" id="workplace-bullying">
-        <h2>Bullying in the Workplace</h2>
-        <p>Recognizing and addressing workplace dynamics that impact morale, safety, and team cohesion within departments.</p>
-      </div>
-
-      <div class="specialty-card" id="compassion-fatigue">
-        <h2>Compassion Fatigue</h2>
-        <p>Understanding the emotional toll of helping others in crisis and strategies to maintain empathy without depletion.</p>
-      </div>
-
-      <div class="specialty-card" id="divorce">
-        <h2>Divorce / Co-Parenting</h2>
-        <p>Support for navigating separation and co-parenting challenges, especially within the demands of first responder life.</p>
-      </div>
-
-      <div class="specialty-card" id="spouse-family-education">
-        <h2>Education for Spouse and Family</h2>
-        <p>Helping loved ones understand the realities of first responder work and how to support their partner or family member.</p>
-      </div>
-
-      <div class="specialty-card" id="grief">
-        <h2>Grief and Bereavement</h2>
-        <p>Processing loss, both personal and professional, including line-of-duty deaths and cumulative exposure to tragedy.</p>
-      </div>
-
-      <div class="specialty-card" id="marriage">
-        <h2>Managing Your Marriage</h2>
-        <p>Strengthening relationships impacted by stress, time apart, and the emotional weight of the profession.</p>
-      </div>
-
-      <div class="specialty-card" id="mental-health">
-        <h2>Mental Health for First Responders</h2>
-        <p>Foundational education and support around common mental health challenges within the first responder population.</p>
-      </div>
-
-      <div class="specialty-card" id="mindfulness">
-        <h2>Mindfulness</h2>
-        <p>Practical techniques to improve focus, regulate stress, and stay present in high-pressure environments.</p>
-      </div>
-
-      <div class="specialty-card" id="posttraumatic-growth">
-        <h2>Posttraumatic Growth</h2>
-        <p>Exploring how individuals can find meaning, strength, and growth following traumatic experiences.</p>
-      </div>
-
-      <div class="specialty-card" id="resiliency">
-        <h2>Resiliency</h2>
-        <p>Building sustainable mental and emotional strength to adapt and perform under ongoing stress.</p>
-      </div>
-
-      <div class="specialty-card" id="retirement">
-        <h2>Retirement Expectations, Concerns, and Psychological Process</h2>
-        <p>Preparing for the transition out of service, including identity shifts, purpose, and long-term adjustment.</p>
-      </div>
-
-      <div class="specialty-card" id="sleep">
-        <h2>Shift Work and Sleep</h2>
-        <p>Addressing the impact of irregular schedules on sleep, health, and overall functioning.</p>
-      </div>
-
-      <div class="specialty-card" id="stress-management">
-        <h2>Stress Management</h2>
-        <p>Practical tools to manage daily and cumulative stress associated with high-demand roles.</p>
-      </div>
-
-      <div class="specialty-card" id="ptsd">
-        <h2>Understanding Posttraumatic Stress Disorder (PTSD)</h2>
-        <p>Education on recognizing, understanding, and addressing PTSD within first responder populations.</p>
-      </div>
-    </div>
-  </main>
+  <script src="assets/js/nav.js"></script>
 </body>
 </html>
+
